@@ -1,0 +1,27 @@
+ArcGIS API for JavaScript: Build a custom UI for API widgets
+
+The ArcGIS API for JavaScript's widgets have a clean separation between the user interface (the "view") and the underlying business logic ("viewModel"), allowing developers to use the viewModel to create a custom experience. In this session, you will learn how you can create your own view with a custom look at feel using widget viewModels. We will look at examples of how to use the viewModels to create UIs that integrate into popular web frameworks, CSS libraries, as well as the Calcite Design System using web components.
+
+Thursday 03/10/22 05:30 PM
+
+
+Outline?
+
+- Dev environment?
+- JSAPI Doc
+  - Examples
+  - Views
+  - ViewModels
+- Calcite Doc
+  - Examples
+- Demo: Take a VM and use HTML/CSS to create a UI
+- Demo: Take a VM and use a framework/library to create a UI
+- Demo: Take a VM and use calcite components to create a UI
+
+
+This kind of replaces the "creating a widget" & "customizing a widget" sessions so I we can look at those old sessions and that might help with the outline.
+
+https://jcfranco.github.io/dev-summit-2021-building-your-own-widget/slides/#/
+https://jcfranco.github.io/dev-summit-2021-customizing-widgets/slides/#/
+
+
