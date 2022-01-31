@@ -1,0 +1,23 @@
+- Setting up environment
+- What’s a widget?
+  - What is a view? What is a view model
+  - Why?
+  - Why the separation?
+- How they work together
+- JSAPI Doc
+  - Esri/core/accessor —> since view models extend accessor
+- Calcite Components
+  - What is it?
+  - Why use it?
+  - If you use calcite in your custom view, it would be cool to talk about how to apply custom theming
+  - Calcite doc
+- Examples
+- Series of Demos - one web app, stepped approach
+  - Bootstrap
+  - Framework/library - React
+  - Calcite Components
+- Resources
+  - Docs
+  - Repo
+  - Calcite Components doc, repo, npm page
+- Q/A
