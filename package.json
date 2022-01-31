@@ -1,51 +1,99 @@
 {
-  "name": "dev-summit-2021-building-your-own-widget",
-  "version": "1.0.0",
-  "private": true,
+  "name": "esri-reveal.js-templates",
+  "version": "4.2.1",
+  "description": "reveal.js templates that look like official PowerPoint templates for Esri conferences",
+  "homepage": "https://github.com/esri/reveal.js",
+  "subdomain": "revealjs",
+  "main": "dist/reveal.js",
+  "module": "dist/reveal.esm.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "gulp test",
+    "start": "gulp serve",
+    "build": "gulp build"
+  },
+  "author": {
+    "name": "John Gravois",
+    "email": "john@esri.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcfranco/dev-summit-2021-building-your-own-widget.git"
+    "url": "git://github.com/Esri/reveal.js.git"
   },
-  "bugs": {
-    "url": "https://github.com/jcfranco/dev-summit-2021-building-your-own-widget/issues"
+  "engines": {
+    "node": ">=10.0.0"
   },
-  "homepage": "https://github.com/jcfranco/dev-summit-2021-building-your-own-widget#readme",
-  "dependencies": {
-    "esri-reveal.js-templates": "git+https://github.com/esri/reveal.js.git",
-    "tslib": "^2.1.0"
-  },
+  "keywords": [
+    "reveal",
+    "slides",
+    "presentation"
+  ],
   "devDependencies": {
-    "@types/arcgis-js-api": "^4.18.0",
-    "grunt": "~1.0.4",
-    "grunt-sass": "~3.1.0",
-    "prettier": "~1.19.1",
-    "typescript": "^3.8.3"
+    "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "babel-plugin-transform-html-import-to-string": "0.0.1",
+    "colors": "^1.4.0",
+    "core-js": "^3.12.1",
+    "fitty": "^2.3.0",
+    "glob": "^7.1.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-tap": "^2.0.0",
+    "gulp-zip": "^4.2.0",
+    "highlight.js": "^10.0.3",
+    "marked": "^2.0.3",
+    "node-qunit-puppeteer": "^2.1.0",
+    "qunit": "^2.17.2",
+    "rollup": "^2.48.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.39.2",
+    "yargs": "^15.1.0"
   },
-  "prettier": {
-    "arrowParens": "always",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "printWidth": 120,
-    "semi": true,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "none",
-    "useTabs": false,
-    "overrides": [
-      {
-        "files": "*.tsx",
-        "options": {
-          "printWidth": 100
+  "browserslist": "> 0.5%, IE 11, not dead",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "requireConfigFile": false
+    },
+    "globals": {
+      "module": false,
+      "console": false,
+      "unescape": false,
+      "define": false,
+      "exports": false
+    },
+    "rules": {
+      "curly": 0,
+      "eqeqeq": 2,
+      "wrap-iife": [
+        2,
+        "any"
+      ],
+      "no-use-before-define": [
+        2,
+        {
+          "functions": false
         }
-      }
-    ]
-  },
-  "description": "[Preview presentation](https://jcfranco.github.io/dev-summit-2021-building-your-own-widget/slides/#/)",
-  "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+      ],
+      "new-cap": 2,
+      "no-caller": 2,
+      "dot-notation": 0,
+      "no-eq-null": 2,
+      "no-unused-expressions": 0
+    }
+  }
 }
