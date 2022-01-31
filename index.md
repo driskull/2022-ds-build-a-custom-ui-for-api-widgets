@@ -1,11 +1,8 @@
 <!-- .slide: data-background="img/2022/dev-summit/bg-1.png" data-background-size="cover" -->
-<!-- Presenter: Franco -->
 
-# Building Your Own Widget <br />with the ArcGIS JSAPI
-
-## Matt Driscoll – [@driskull](https://twitter.com/driskull)
-
-## JC Franco – [@arfncode](https://twitter.com/arfncode)
+<h1 style="text-align: left; font-size: 80px;"><div><small>ArcGIS API for JavaScript:</small></div> Build a custom UI for API widgets</h1>
+<p style="text-align: left; font-size: 30px; color: var(--r-section-subhead-color);">Matt Driscoll, Ryan Libed</p>
+<p style="text-align: left; font-size: 30px;">Slides: <a href="http://bit.ly/abc123"><code>http://bit.ly/abc123</code></a></p>
 
 ---
 
@@ -20,7 +17,26 @@
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-4.png" data-background-size="cover" -->
+<h1 style="text-align: left; font-size: 48px;">Section Header</h1>
+<p style="text-align: left; font-size: 24px; color: var(--r-section-subhead-color);">Section Subhead</p>
+
+---
+
+<h2 data-id="code-title">Code Example</h2>
+<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+  return (
+    ...
+  );
+}
+</code></pre>
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Setting up the Dev Environment
 
@@ -105,7 +121,7 @@ const shorthand = { person };
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 <!-- Presenter: Matt -->
 
@@ -251,7 +267,7 @@ interface LayerEffect { // helper class
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Writing a Widget
 
@@ -345,7 +361,7 @@ Develop a simple widget
 
 <!-- Presenter: Franco -->
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Improving Our Widget
 
@@ -446,7 +462,7 @@ interface LayerFX extends Widget {
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Final Recap
 
@@ -474,6 +490,7 @@ interface LayerFX extends Widget {
 - Accessible Web Mapping Apps: ARIA, WCAG and 508 Compliance
 
 ---
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Questions? 🤔
 
@@ -485,16 +502,16 @@ interface LayerFX extends Widget {
 
 [bit.ly/askjsapi](http://bit.ly/askjsapi)
 
----
-
-<section data-markdown data-background="img/2022/dev-summit/bg-5.png">
-
-<img src="../node_modules/esri-reveal.js-templates/img/esri-science-logo-white.png" />
 
 ---
 
-<section data-markdown data-background="img/2022/dev-summit/bg-5.png">
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-Please provide your feedback for this session by clicking on the session survey link directly below the video
-
+Please provide your feedback for this session by clicking on the session survey link directly below the video.
 <!-- .element: style="margin: 0 20%;" -->
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-8.png" data-background-size="cover" -->
+
+
