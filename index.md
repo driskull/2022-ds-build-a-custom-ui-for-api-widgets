@@ -10,10 +10,10 @@
 
 - Set up dev environment
 - Widget fundamentals
-- Develop
-  - `LayerFX` Class
-  - Simple Widget
-  - `LayerFX` Widget
+- Calcite
+- Examples
+- Resources
+- Q & A
 
 ---
 
