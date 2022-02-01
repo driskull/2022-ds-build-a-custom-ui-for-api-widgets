@@ -17,25 +17,6 @@
 
 ---
 
-<h1 style="text-align: left; font-size: 48px;">Section Header</h1>
-<p style="text-align: left; font-size: 24px; color: var(--r-section-subhead-color);">Section Subhead</p>
-
----
-
-<h2 data-id="code-title">Code Example</h2>
-<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-import React, { useState } from 'react';
-
-function Example() {
-  const [count, setCount] = useState(0);
-  return (
-    ...
-  );
-}
-</code></pre>
-
----
-
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Setting up the Dev Environment
@@ -199,7 +180,8 @@ class House extends Accessor {
   owner: Person;
 }
 
-const house = new House({ owner: { name: "Franco", age: 33 } });
+const house =
+new House({ owner: { name: "Franco", age: 33 } });
 
 // house.owner is an instance of Person
 console.log(house.owner.yearsAlive); // 33
@@ -513,5 +495,24 @@ Please provide your feedback for this session by clicking on the session survey 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-8.png" data-background-size="cover" -->
+
+---
+
+<h1 style="text-align: left; font-size: 48px;">Section Header</h1>
+<p style="text-align: left; font-size: 24px; color: var(--r-section-subhead-color);">Section Subhead</p>
+
+---
+
+<h2 data-id="code-title">Code Example</h2>
+<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+  return (
+    ...
+  );
+}
+</code></pre>
 
 
