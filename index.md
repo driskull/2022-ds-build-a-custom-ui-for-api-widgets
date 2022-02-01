@@ -2,7 +2,7 @@
 
 <h1 style="text-align: left; font-size: 80px;"><div><small>ArcGIS API for JavaScript:</small></div> Build a custom UI for API widgets</h1>
 <p style="text-align: left; font-size: 30px; color: var(--r-section-subhead-color);">Matt Driscoll, Ryan Libed</p>
-<p style="text-align: left; font-size: 30px;">Slides: <a href="https://esriurl.com/ds2022-custom-ui"><code>https://esriurl.com/ds2022-custom-ui</code></a></p>
+<p style="text-align: left; font-size: 30px;">Slides: <a href="https://esriurl.com/ds2022-custom-ui"><code>esriurl.com/ds2022-custom-ui</code></a></p>
 
 ---
 
