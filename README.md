@@ -1,6 +1,6 @@
 # ArcGIS API for JavaScript: Build a custom UI for API widgets
 
-[Preview presentation](https://driskull.github.io/2022-ds-build-a-custom-ui-for-api-widgets/slides/#/)
+[Preview presentation](https://driskull.github.io/2022-ds-build-a-custom-ui-for-api-widgets)
 
 To be presented at [Esri Developer Summit 2022](http://www.esri.com/events/devsummit).
 
