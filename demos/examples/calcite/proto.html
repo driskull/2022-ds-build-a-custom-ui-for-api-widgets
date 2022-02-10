@@ -34,14 +34,19 @@
         width: 100%;
         overflow: hidden;
       }
+
+      .out-of-scale {
+        --calcite-ui-text-1: #bbb;
+      }
     </style>
 
     <script>
-      require(["esri/views/MapView", "esri/widgets/LayerList", "esri/WebMap"], (
-        MapView,
-        LayerList,
-        WebMap
-      ) => {
+      require([
+        "esri/views/MapView",
+        "esri/widgets/LayerList/LayerListViewModel",
+        "esri/WebMap",
+        "esri/core/Handles",
+      ], (MapView, LayerListViewModel, WebMap, Handles) => {
         const map = new WebMap({
           portalItem: {
             id: "f0af163043b94a72a287bb0d8abeeb7e",
@@ -53,13 +58,107 @@
           map,
         });
 
+        const listItemMap = new Map();
+        const handles = new Handles();
+
         view.when(() => {
-          const layerList = new LayerList({
+          const vm = new LayerListViewModel({
             view: view,
           });
 
-          // Add widget to the top right corner of the view
-          view.ui.add(layerList, "top-right");
+          const myPanel = document.createElement("calcite-panel");
+          myPanel.heading = map.portalItem.title;
+          view.ui.add(myPanel, "top-right");
+
+          const myLayerlist = document.createElement("calcite-pick-list");
+          myLayerlist.multiple = true;
+          myLayerlist.addEventListener("calciteListItemChange", (event) => {
+            const { selected, value } = event.detail;
+            const item = listItemMap.get(value);
+
+            if (item) {
+              item.visible = selected;
+            }
+          });
+          myPanel.appendChild(myLayerlist);
+
+          function handleItemChange(item, pickListItem) {
+            pickListItem.label = item.title;
+            pickListItem.value = item.uid;
+            pickListItem.selected = item.visible;
+            pickListItem.className = !item.visibleAtCurrentScale
+              ? "out-of-scale"
+              : "";
+
+            pickListItem.innerHTML = item.updating
+              ? `<calcite-action scale="s" loading slot="actions-end"></calcite-action>`
+              : "";
+          }
+
+          function handleOperationalItemsChange() {
+            const { operationalItems } = vm;
+
+            myLayerlist.innerHTML = "";
+            listItemMap.clear();
+            handles.removeAll();
+
+            function createPickListItem(item, parentNode) {
+              const pickListItem = document.createElement(
+                "calcite-pick-list-item"
+              );
+
+              listItemMap.set(item.uid, item);
+
+              handleItemChange(item, pickListItem);
+
+              const handle = item.watch(
+                [
+                  "title",
+                  "uid",
+                  "visible",
+                  "visibleAtCurrentScale",
+                  "updating",
+                ],
+                () => handleItemChange(item, pickListItem)
+              );
+              handles.add(handle);
+
+              const groupItem = item.children.length
+                ? document.createElement("calcite-pick-list-group")
+                : null;
+
+              item.children.forEach((child) => {
+                createPickListItem(child, groupItem);
+              });
+
+              if (groupItem) {
+                pickListItem.slot = "parent-item";
+                groupItem.appendChild(pickListItem);
+                parentNode.appendChild(groupItem);
+              } else {
+                parentNode.appendChild(pickListItem);
+              }
+            }
+
+            operationalItems.forEach((item) =>
+              createPickListItem(item, myLayerlist)
+            );
+          }
+
+          function handleStateChange() {
+            const { state } = vm;
+
+            myLayerlist.loading = state === "loading";
+            myLayerlist.disabled = state === "disabled";
+          }
+
+          handleStateChange();
+          handleOperationalItemsChange();
+
+          vm.watch("state", () => handleStateChange());
+          vm.operationalItems.on("change", () =>
+            handleOperationalItemsChange()
+          );
         });
       });
     </script>
