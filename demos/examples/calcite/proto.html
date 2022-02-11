@@ -90,9 +90,29 @@
               ? "out-of-scale"
               : "";
 
-            pickListItem.innerHTML = item.updating
-              ? `<calcite-action scale="s" loading slot="actions-end"></calcite-action>`
-              : "";
+            pickListItem.innerHTML = "";
+
+            if (item.updating) {
+              const loadingAction = document.createElement("calcite-action");
+              loadingAction.scale = "s";
+              loadingAction.loading = true;
+              loadingAction.slot = "actions-end";
+              pickListItem.appendChild(loadingAction);
+            }
+
+            if (item.children.length) {
+              const caretIcon = item.open ? "caret-down" : "caret-right";
+              const caretAction = document.createElement("calcite-action");
+              caretAction.scale = "s";
+              caretAction.icon = caretIcon;
+              caretAction.slot = "actions-start";
+              pickListItem.appendChild(caretAction);
+
+              caretAction.onclick = () => {
+                item.open = !item.open;
+                handleOperationalItemsChange();
+              };
+            }
           }
 
           function handleOperationalItemsChange() {
@@ -118,6 +138,8 @@
                   "visible",
                   "visibleAtCurrentScale",
                   "updating",
+                  "open",
+                  "children.length",
                 ],
                 () => handleItemChange(item, pickListItem)
               );
@@ -127,9 +149,10 @@
                 ? document.createElement("calcite-pick-list-group")
                 : null;
 
-              item.children.forEach((child) => {
-                createPickListItem(child, groupItem);
-              });
+              item.open &&
+                item.children.forEach((child) => {
+                  createPickListItem(child, groupItem);
+                });
 
               if (groupItem) {
                 pickListItem.slot = "parent-item";
