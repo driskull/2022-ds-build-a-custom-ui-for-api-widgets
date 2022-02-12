@@ -26,6 +26,8 @@ const handles = new Handles();
 function LayerList(props: LayerListProps) {
   const [layerListVM, setLayerListVM] = useState(null);
 
+  const [count, setCount] = useState(0);
+
   useEffect(() => {
     if (props.view) {
       setLayerListVM(
@@ -44,7 +46,73 @@ function LayerList(props: LayerListProps) {
 
   const vm: LayerListViewModel = layerListVM;
 
-  const listItemMap = new Map();
+  // todo: store and cleanup
+  handles.add([
+    vm?.watch("state", () => setCount(count + 1)),
+    vm?.operationalItems?.on("change", () => setCount(count + 1)),
+  ]);
+
+  const renderItem = (item: __esri.ListItem) => {
+    const value = (item as any).uid;
+    const hasChildren = item.children.length;
+
+    // todo: store and cleanup
+    handles.remove(value);
+    handles.add(
+      item.watch(
+        [
+          "title",
+          "uid",
+          "visible",
+          "visibleAtCurrentScale",
+          "updating",
+          "open",
+          "children.length",
+        ],
+        () => setCount(count + 1)
+      ),
+      value
+    );
+
+    const itemNode = (
+      <CalcitePickListItem
+        className={!item.visibleAtCurrentScale ? "out-of-scale" : ""}
+        key={value}
+        label={item.title}
+        onCalciteListItemChange={() => (item.visible = !item.visible)}
+        selected={item.visible}
+        value={value}
+        {...(hasChildren ? { slot: "parent-item" } : {})}
+      >
+        {hasChildren ? (
+          <CalciteAction
+            icon={item.open ? "caret-down" : "caret-right"}
+            onClick={() => (item.open = !item.open)}
+            scale="s"
+            slot="actions-start"
+            text="Toggle children"
+          />
+        ) : null}
+        {item.updating ? (
+          <CalciteAction
+            loading={true}
+            scale="s"
+            slot="actions-end"
+            text="Loading"
+          />
+        ) : null}
+      </CalcitePickListItem>
+    );
+
+    return hasChildren ? (
+      <CalcitePickListGroup key={`${value}-group`}>
+        {itemNode}
+        {item.children.map(renderItem)}
+      </CalcitePickListGroup>
+    ) : (
+      itemNode
+    );
+  };
 
   return (
     <CalcitePanel>
@@ -53,37 +121,7 @@ function LayerList(props: LayerListProps) {
         loading={vm?.state === "loading"}
         disabled={vm?.state === "disabled"}
       >
-        {console.log(vm)}
-        {vm?.operationalItems?.map((item) => {
-          listItemMap.set((item as any).uid, item);
-
-          return (
-            <CalcitePickListItem
-              className={!item.visibleAtCurrentScale ? "out-of-scale" : ""}
-              label={item.title}
-              selected={item.visible}
-              value={(item as any).uid}
-            >
-              {item.children.length ? (
-                <CalciteAction
-                  icon={item.open ? "caret-down" : "caret-right"}
-                  scale="s"
-                  slot="actions-start"
-                  text="Loading"
-                />
-              ) : null}
-              {item.updating ? (
-                <CalciteAction
-                  loading={true}
-                  onClick={() => (item.open = !item.open)}
-                  scale="s"
-                  slot="actions-end"
-                  text="Loading"
-                />
-              ) : null}
-            </CalcitePickListItem>
-          );
-        })}
+        {vm?.operationalItems?.map(renderItem)}
       </CalcitePickList>
     </CalcitePanel>
   );
