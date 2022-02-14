@@ -21,11 +21,9 @@ interface LayerListProps {
   view: __esri.MapView;
 }
 
-const handles = new Handles();
-
 function LayerList(props: LayerListProps) {
-  const [layerListVM, setLayerListVM] = useState(null);
-
+  const handles = new Handles();
+  const [layerListVM, setLayerListVM] = useState<LayerListViewModel>(null);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -38,41 +36,58 @@ function LayerList(props: LayerListProps) {
     }
   }, [props.view]);
 
+  const watchItems = (): void => {
+    handles.removeAll();
+
+    handles.add([
+      layerListVM.watch("state", () => setCount(count + 1)),
+      layerListVM.operationalItems.on("change", () => setCount(count + 1)),
+    ]);
+
+    layerListVM.operationalItems.forEach((item) => watchItem(item));
+
+    //setCount(count + 1);
+  };
+
+  const watchItem = (item: __esri.ListItem): void => {
+    const value = (item as any).uid;
+
+    handles.add(
+      [
+        item.watch(
+          [
+            "title",
+            "uid",
+            "visible",
+            "visibleAtCurrentScale",
+            "updating",
+            "open",
+          ],
+          () => setCount(count + 1)
+        ),
+        item.children.on("change", () => setCount(count + 1)),
+      ],
+      value
+    );
+
+    item.children.forEach((child) => watchItem(child));
+
+    //setCount(count + 1);
+  };
+
   useEffect(() => {
     if (layerListVM) {
-      console.log("LAYER LIST VIEW MODEL: ", layerListVM);
+      watchItems();
+
+      return function cleanup() {
+        handles.removeAll();
+      };
     }
   }, [layerListVM]);
 
-  const vm: LayerListViewModel = layerListVM;
-
-  // todo: store and cleanup
-  handles.add([
-    vm?.watch("state", () => setCount(count + 1)),
-    vm?.operationalItems?.on("change", () => setCount(count + 1)),
-  ]);
-
   const renderItem = (item: __esri.ListItem) => {
     const value = (item as any).uid;
-    const hasChildren = item.children.length;
-
-    // todo: store and cleanup
-    handles.remove(value);
-    handles.add(
-      item.watch(
-        [
-          "title",
-          "uid",
-          "visible",
-          "visibleAtCurrentScale",
-          "updating",
-          "open",
-          "children.length",
-        ],
-        () => setCount(count + 1)
-      ),
-      value
-    );
+    const hasChildren = item.children?.length;
 
     const itemNode = (
       <CalcitePickListItem
@@ -107,7 +122,7 @@ function LayerList(props: LayerListProps) {
     return hasChildren ? (
       <CalcitePickListGroup key={`${value}-group`}>
         {itemNode}
-        {item.children.map(renderItem)}
+        {item.open ? item.children.map(renderItem) : null}
       </CalcitePickListGroup>
     ) : (
       itemNode
@@ -118,10 +133,10 @@ function LayerList(props: LayerListProps) {
     <CalcitePanel>
       <CalcitePickList
         multiple={true}
-        loading={vm?.state === "loading"}
-        disabled={vm?.state === "disabled"}
+        loading={layerListVM?.state === "loading"}
+        disabled={layerListVM?.state === "disabled"}
       >
-        {vm?.operationalItems?.map(renderItem)}
+        {layerListVM?.operationalItems?.map(renderItem)}
       </CalcitePickList>
     </CalcitePanel>
   );
