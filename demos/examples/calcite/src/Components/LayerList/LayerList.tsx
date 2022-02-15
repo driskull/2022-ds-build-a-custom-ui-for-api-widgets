@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./LayerList.scss";
 
 import Handles from "@arcgis/core/core/Handles";
+import { watch, whenOnce } from "@arcgis/core/core/watchUtils";
 import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
 
 import "@esri/calcite-components/dist/components/calcite-panel";
@@ -14,7 +15,7 @@ import {
   CalcitePickList,
   CalcitePickListGroup,
   CalcitePickListItem,
-  CalciteAction,
+  CalciteAction
 } from "@esri/calcite-components-react";
 
 interface LayerListProps {
@@ -27,10 +28,14 @@ function LayerList(props: LayerListProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    console.log("COUNT: ", count);
+  }, [count]);
+
+  useEffect(() => {
     if (props.view) {
       setLayerListVM(
         new LayerListViewModel({
-          view: props.view,
+          view: props.view
         })
       );
     }
@@ -40,13 +45,15 @@ function LayerList(props: LayerListProps) {
     handles.removeAll();
 
     handles.add([
-      layerListVM.watch("state", () => setCount(count + 1)),
-      layerListVM.operationalItems.on("change", () => setCount(count + 1)),
+      layerListVM.watch("state", () => setCount(prev => prev + 1)),
+      layerListVM.operationalItems.on("change", () =>
+        setCount(prev => prev + 1)
+      )
     ]);
 
-    layerListVM.operationalItems.forEach((item) => watchItem(item));
+    layerListVM.operationalItems.forEach(item => watchItem(item));
 
-    //setCount(count + 1);
+    //setCount(prev => prev + 1);
   };
 
   const watchItem = (item: __esri.ListItem): void => {
@@ -63,21 +70,23 @@ function LayerList(props: LayerListProps) {
             "updating",
             "open",
           ],
-          () => setCount(count + 1)
+          () => setCount(prev => prev + 1)
         ),
-        item.children.on("change", () => setCount(count + 1)),
+        item.children.on("change", () => setCount(prev => prev + 1))
       ],
       value
     );
 
-    item.children.forEach((child) => watchItem(child));
+    item.children.forEach(child => watchItem(child));
 
-    //setCount(count + 1);
+    //setCount(prev => prev + 1);
   };
 
   useEffect(() => {
     if (layerListVM) {
-      watchItems();
+      whenOnce(layerListVM, "operationalItems.length", () => {
+        watchItems();
+      });
 
       return function cleanup() {
         handles.removeAll();
