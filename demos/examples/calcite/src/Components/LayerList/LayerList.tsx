@@ -142,7 +142,7 @@ function LayerList(props: LayerListProps) {
   };
 
   return (
-    <CalcitePanel>
+    <CalcitePanel heading="Layers">
       <CalcitePickList
         multiple={true}
         loading={layerListVM?.state === "loading"}
