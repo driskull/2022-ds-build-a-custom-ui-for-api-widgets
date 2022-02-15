@@ -44,8 +44,8 @@ function App() {
   }, []);
 
   return [
-    loading ? <CalciteScrim loading /> : null,
-    <CalciteShell>
+    loading ? <CalciteScrim key="scrim" loading /> : null,
+    <CalciteShell key="shell">
       <Header title={mapTitle || "Loading..."} />
       <SidePanel view={view} />
       <View view={view} />
