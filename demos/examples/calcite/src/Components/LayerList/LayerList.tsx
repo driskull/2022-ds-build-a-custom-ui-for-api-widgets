@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./LayerList.scss";
-
-import Handles from "@arcgis/core/core/Handles";
-import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
+import { watchLayerListVM } from "./helpers";
 import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
 
 import "@esri/calcite-components/dist/components/calcite-panel";
@@ -10,6 +8,7 @@ import "@esri/calcite-components/dist/components/calcite-pick-list";
 import "@esri/calcite-components/dist/components/calcite-pick-list-group";
 import "@esri/calcite-components/dist/components/calcite-pick-list-item";
 import "@esri/calcite-components/dist/components/calcite-action";
+
 import {
   CalcitePanel,
   CalcitePickList,
@@ -18,83 +17,31 @@ import {
   CalciteAction,
 } from "@esri/calcite-components-react";
 
-interface LayerListProps {
-  view: __esri.MapView;
-}
-
-function LayerList(props: LayerListProps) {
-  const handles = new Handles();
-  const layerHandleGroup = "layers";
+function LayerList(props: __esri.LayerListViewModelProperties) {
   const [layerListVM, setLayerListVM] = useState<LayerListViewModel>(null);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // acceptable practice?
     console.log("COUNT: ", count);
   }, [count]);
 
   useEffect(() => {
     if (props.view) {
-      setLayerListVM(
-        new LayerListViewModel({
-          view: props.view,
-        })
-      );
+      const vm = new LayerListViewModel({
+        view: props.view,
+      });
+
+      setLayerListVM(vm);
+
+      return function cleanup() {
+        vm.destroy();
+      };
     }
   }, [props.view]);
 
-  const watchItems = (): void => {
-    handles.remove(layerHandleGroup);
-
-    handles.add(
-      layerListVM.operationalItems.on("change", () => {
-        watchItems();
-        setCount((prev) => prev + 1);
-      }),
-      layerHandleGroup
-    );
-
-    layerListVM.operationalItems.forEach((item) => watchItem(item));
-  };
-
-  const watchItem = (item: __esri.ListItem): void => {
-    handles.add(
-      [
-        item.watch(
-          [
-            "title",
-            "uid",
-            "visible",
-            "visibleAtCurrentScale",
-            "updating",
-            "open",
-          ],
-          () => setCount((prev) => prev + 1)
-        ),
-        item.children.on("change", () => {
-          watchItems();
-          setCount((prev) => prev + 1);
-        }),
-      ],
-      layerHandleGroup
-    );
-
-    item.children.forEach((child) => watchItem(child));
-  };
-
   useEffect(() => {
-    if (layerListVM) {
-      handles.add([
-        layerListVM.watch("state", () => setCount((prev) => prev + 1)),
-        whenEqualOnce(layerListVM, "state", "ready", () => {
-          watchItems();
-        }),
-      ]);
-
-      return function cleanup() {
-        handles.removeAll();
-        handles.destroy();
-      };
-    }
+    return watchLayerListVM(layerListVM, () => setCount((prev) => prev + 1));
   }, [layerListVM]);
 
   const renderItem = (item: __esri.ListItem) => {
