@@ -1,0 +1,14 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 5%;
+  padding-left: 7.5px;
+  background-color: #0079c1;
+  color: #ffffff;
+
+  h1 {
+    font-size: 22px;
+    margin: 0;
+  }
+}
