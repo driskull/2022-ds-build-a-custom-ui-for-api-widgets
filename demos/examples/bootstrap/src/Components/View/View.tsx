@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Home from "@arcgis/core/widgets/Home";
 import "./View.scss";
 
 interface ViewProps {
@@ -14,7 +15,17 @@ function View(props: ViewProps) {
     }
   }, [props.view, viewRef?.current]);
 
-  return <div ref={viewRef} id="viewDiv" className="col-8" />;
+  useEffect(() => {
+    if (!props.view) {
+      return;
+    }
+    const home = new Home({
+      view: props.view
+    });
+    props.view.ui.add(home, "top-left");
+  }, [props.view]);
+
+  return <div ref={viewRef} id="viewDiv" className="col-9" />;
 }
 
 export default View;
