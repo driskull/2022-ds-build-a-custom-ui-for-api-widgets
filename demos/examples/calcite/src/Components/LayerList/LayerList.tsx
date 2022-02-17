@@ -40,8 +40,12 @@ function LayerList(props: __esri.LayerListViewModelProperties) {
     }
   }, [props.view]);
 
+  const updateCount = () => {
+    setCount((prev) => prev + 1);
+  };
+
   useEffect(() => {
-    return watchLayerListVM(layerListVM, () => setCount((prev) => prev + 1));
+    return watchLayerListVM(layerListVM, updateCount);
   }, [layerListVM]);
 
   const renderItem = (item: __esri.ListItem) => {

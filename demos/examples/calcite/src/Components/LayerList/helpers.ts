@@ -3,7 +3,7 @@ import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
 
 export function watchLayerListVM(
   layerListVM: __esri.LayerListViewModel,
-  callback: () => void
+  callback?: () => void
 ): () => void {
   if (!layerListVM) {
     return;
@@ -24,7 +24,7 @@ export function watchLayerListVM(
             "updating",
             "open",
           ],
-          () => callback.call(null)
+          () => callback?.call(null)
         ),
         item.children.on("change", watchItems),
       ],
@@ -35,7 +35,7 @@ export function watchLayerListVM(
   };
 
   const watchItems = (): void => {
-    callback.call(null);
+    callback?.call(null);
     handles.remove(layerHandleGroup);
 
     handles.add(
@@ -47,7 +47,7 @@ export function watchLayerListVM(
   };
 
   handles.add([
-    layerListVM.watch("state", () => callback.call(null)),
+    layerListVM.watch("state", () => callback?.call(null)),
     whenEqualOnce(layerListVM, "state", "ready", watchItems),
   ]);
 
