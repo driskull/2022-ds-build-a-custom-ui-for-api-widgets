@@ -24,8 +24,8 @@ export function useLayerListViewModel(
     });
 
     return function cleanup() {
-      handles?.removeAll();
-      handles?.destroy();
+      handles.removeAll();
+      handles.destroy();
     };
   }, [layerListVM]);
 
