@@ -40,11 +40,11 @@ function LayerList(props: __esri.LayerListViewModelProperties) {
     }
   }, [props.view]);
 
-  const updateCount = () => {
-    setCount((prev) => prev + 1);
-  };
-
   useEffect(() => {
+    const updateCount = () => {
+      setCount((prev) => prev + 1);
+    };
+
     return watchLayerListVM(layerListVM, updateCount);
   }, [layerListVM]);
 
