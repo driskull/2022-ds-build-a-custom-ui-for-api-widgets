@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./LayerList.scss";
-import { watchLayerListVM } from "./helpers";
-import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
+import { useLayerListViewModel } from "./hooks";
 
 import "@esri/calcite-components/dist/components/calcite-panel";
 import "@esri/calcite-components/dist/components/calcite-pick-list";
@@ -18,35 +17,7 @@ import {
 } from "@esri/calcite-components-react";
 
 function LayerList(props: __esri.LayerListViewModelProperties) {
-  const [layerListVM, setLayerListVM] = useState<LayerListViewModel>(null);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // acceptable practice?
-    console.log("COUNT: ", count);
-  }, [count]);
-
-  useEffect(() => {
-    if (props.view) {
-      const vm = new LayerListViewModel({
-        view: props.view,
-      });
-
-      setLayerListVM(vm);
-
-      return function cleanup() {
-        vm.destroy();
-      };
-    }
-  }, [props.view]);
-
-  useEffect(() => {
-    const updateCount = () => {
-      setCount((prev) => prev + 1);
-    };
-
-    return watchLayerListVM(layerListVM, updateCount);
-  }, [layerListVM]);
+  const layerListVM = useLayerListViewModel(props);
 
   const renderItem = (item: __esri.ListItem) => {
     const value = (item as any).uid;
