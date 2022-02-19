@@ -1,15 +1,21 @@
 import Handles from "@arcgis/core/core/Handles";
 import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
 
-export function watchLayerListVM(
-  layerListVM: __esri.LayerListViewModel,
-  callback?: () => void
-): () => void {
+export function addLayerListHandlers({
+  layerListVM,
+  handles,
+  callback,
+}: {
+  layerListVM: __esri.LayerListViewModel;
+  handles: Handles;
+  callback?: () => void;
+}): __esri.Handles {
+  handles.removeAll();
+
   if (!layerListVM) {
     return;
   }
 
-  const handles = new Handles();
   const layerHandleGroup = "layers";
 
   const watchItem = (item: __esri.ListItem): void => {
@@ -50,9 +56,4 @@ export function watchLayerListVM(
     layerListVM.watch("state", () => callback?.call(null)),
     whenEqualOnce(layerListVM, "state", "ready", watchItems),
   ]);
-
-  return function cleanup() {
-    handles.removeAll();
-    handles.destroy();
-  };
 }
