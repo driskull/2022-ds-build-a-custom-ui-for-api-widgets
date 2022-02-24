@@ -21,4 +21,8 @@
       margin-right: 10px;
     }
   }
+
+  .list-group-item.disabled {
+    pointer-events: all;
+  }
 }

@@ -73,8 +73,13 @@ function LayerList(props: LayerListProps) {
           }`}
           id={`listGroup${itemIndex}`}
         >
-          {item.children.map((child) => (
-            <li key={`${(child as any).uid}`} className="list-group-item">
+          {item.children.map(child => (
+            <li
+              key={`${(child as any).uid}`}
+              className={`list-group-item${
+                !child.visibleAtCurrentScale ? " disabled" : ""
+              }`}
+            >
               <div className="form-check">
                 <input
                   className="form-check-input"
@@ -82,7 +87,6 @@ function LayerList(props: LayerListProps) {
                   id={`${(child as any).uid}ChildCheck`}
                   checked={child.visible ? true : false}
                   onChange={() => (child.visible = !child.visible)}
-                  disabled={!child.visibleAtCurrentScale ? true : false}
                 />
                 <label
                   className="form-check-label"
@@ -104,7 +108,6 @@ function LayerList(props: LayerListProps) {
           id={`${value}ItemSwitch`}
           checked={item.visible ? true : false}
           onChange={() => (item.visible = !item.visible)}
-          disabled={!item.visibleAtCurrentScale ? true : false}
         />
         <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
           {title}
@@ -113,7 +116,12 @@ function LayerList(props: LayerListProps) {
     );
 
     return (
-      <li key={`${value}-list-item`} className="list-group-item">
+      <li
+        key={`${value}-list-item`}
+        className={`list-group-item${
+          !item.visibleAtCurrentScale ? " disabled" : ""
+        }`}
+      >
         {itemNode}
       </li>
     );
