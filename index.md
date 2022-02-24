@@ -8,10 +8,12 @@
 
 # Agenda
 
-- Set up dev environment
+- Developer environment setup
 - Widget fundamentals
-- Calcite
-- Examples
+- Creating custom UI
+  - React
+  - React + Bootstrap
+  - React + Calcite Design System
 - Resources
 - Q & A
 
@@ -19,7 +21,7 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Setting up the Dev Environment
+# Developer environment setup
 
 ---
 
@@ -104,154 +106,7 @@ const shorthand = { person };
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-<!-- Presenter: Matt -->
-
-# Creating a Class
-
----
-
-# `esri/core/Accessor`
-
-- JavaScript API foundation <!-- .element: class="fragment" data-fragment-index="0" -->
-- Consistent developer experience <!-- .element: class="fragment" data-fragment-index="1" -->
-
----
-
-# `esri/core/Accessor`
-
-- Unified object constructor
-
-```ts
-class Person extends Accessor {
-  @property() // decorator
-  name: string;
-
-  @property()
-  age: number;
-}
-
-const self = new Person({ name: "Franco", age: 33 });
-
-console.log(self.name, self.age); // Franco, 33
-```
-
----
-
-# `esri/core/Accessor`
-
-- Watch properties
-
-```ts
-const self = new Person({ name: "Franco", age: 33 });
-
-// watch for changes to `age`
-self.watch("age", () => console.log("happy birthday!"));
-```
-
----
-
-# `esri/core/Accessor`
-
-- Alias properties
-
-```ts
-class Person extends Accessor {
-  // ...
-
-  @property({ aliasOf: "age" })
-  yearsAlive: number;
-}
-
-const self = new Person({ name: "Franco", age: 33 });
-
-// watch for changes to `age`
-console.log(self.yearsAlive); // 33
-```
-
----
-
-# `esri/core/Accessor`
-
-- Autocast™ (easy class instantiation)
-
-```ts
-class House extends Accessor {
-  @property({ type: Person })
-  owner: Person;
-}
-
-const house =
-new House({ owner: { name: "Franco", age: 33 } });
-
-// house.owner is an instance of Person
-console.log(house.owner.yearsAlive); // 33
-```
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: Background
-
-Inspired by [Intro to layer effect](https://developers.arcgis.com/javascript/latest/sample-code/intro-effect-layer/) sample
-
-<a target="_blank" href="https://developers.arcgis.com/javascript/latest/sample-code/intro-effect-layer/"><img src="img/layer-effect-sample.png" height=400 /></a>
-
----
-
-# Demo: Background Requirements
-
-- Allows configuring layer effects
-- Updating effects should be applied to the layer
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: Exploring Layer Effects API
-
-- [`FeatureLayer#effect`](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#effect)
-- [`FeatureEffect`](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-layers-support-FeatureEffect.html#Effect)
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: [`LayerFX` Class API](../demos/2-custom-class/)
-
-```ts
-interface LayerFX extends Accessor { // main class
-  layer: Layer;
-  readonly effects: Collection<LayerEffect>; // collection of helper classes
-  readonly statements: string;
-}
-
-interface LayerEffect { // helper class
-  enabled: boolean;
-  id: "bloom" | "blur" | ... | "sepia";
-  values: number[];
-  readonly valueTypes: { unit: string; ... }[];
-  readonly statement: string;
-}
-```
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo Recap: `LayerFX` Class
-
-- Implemented `LayerFX` and supporting class `LayerEffect`
-  - Extended `esri/core/Accessor`
-  - Created properties with `@property`
-  - Typed constructor arguments
-  - Created methods
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Writing a Widget
+# Widget Fundamentals
 
 ---
 
@@ -272,83 +127,6 @@ interface LayerEffect { // helper class
 
 ---
 
-# How to create a widget?
-
-- Extend `esri/Widgets/Widget`
-
----
-
-# `esri/widgets/Widget`
-
-- Base widget class (View)
-- Extends `esri/core/Accessor`
-  - Properties
-  - Watching properties
-  - Etc...
-- Lifecycle
-
----
-
-# Lifecycle
-
-- `constructor()`
-- `postInitialize()`
-- `render()`
-  - `when()` after first render
-- `destroy()`
-
----
-
-# `render()`
-
-- Defines UI
-- Reacts to state changes
-- Uses JSX (VDOM)
-- <!-- .element: class="fragment" data-fragment-index="1" -->Re-renders on prop updates ✨new✨
-
----
-
-# Let's create a simple widget
-
-Simple widget view that renders the `enabled` state of a button
-
-```ts
-interface SimpleWidget extends Widget {
-  enabled: boolean;
-}
-```
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: [`SimpleWidget`](../demos/3-simple-view/)
-
-Develop a simple widget
-
-![Simple Widget](img/simple-widget.png)
-
----
-
-# Demo Recap: `SimpleWidget`
-
-- Extended `esri/widgets/Widget`
-- Implemented `render()`
-- Added a renderable `property()`
-- Added `onclick` event for interaction
-- Added CSS lookup object
-- Toggled property with event to re-render
-
----
-
-<!-- Presenter: Franco -->
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Improving Our Widget
-
----
-
 # Architecture
 
 - Views + ViewModels
@@ -360,7 +138,6 @@ Develop a simple widget
 
 # Views
 
-- `SimpleWidget` example
 - Extend `esri/widgets/Widget`
 - Rely on ViewModel
 - Focus on UI
@@ -369,7 +146,6 @@ Develop a simple widget
 
 # ViewModels
 
-- `LayerFX` class example
 - Extend `esri/core/Accessor`
 - Provide APIs to support View
 - Focus on business logic
@@ -389,100 +165,40 @@ Develop a simple widget
 
 ---
 
-# Let's create `LayerFX` Widget
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-[<img src="img/layerfx-widget.png" height=450 />](../demos/completed/)
-
----
-
-# Demo VM Interface
-
-```ts
-interface LayerFXViewModel extends Accessor {
-  layer: Layer;
-  readonly effects: Collection<LayerEffect>;
-  readonly state: string;
-  readonly statements: string;
-}
-```
-
----
-
-# Demo: View Interface
-
-```ts
-interface LayerFX extends Widget {
-  layer: EffectLayer;
-  viewModel: LayerFXViewModel;
-}
-```
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: [LayerFX Widget](../demos/4-custom-widget/)
-
-- Use `LayerFX` class as `LayerFXViewModel`
-  - Add a state property
-- Create `LayerFX` view
-  - Alias VM properties
-  - Create BEM classes object
-  - Render sections
-
-<!--- mention BEM -->
-
----
-
-# Demo Recap: LayerFX Widget
-
-- Paired View and ViewModel
-- Rendered properties from ViewModel
-- Wired up interactivity
-- Learned to apply styles
-- Updated UI based on a property value change
+# Creating custom user interfaces
 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Final Recap
-
-- Set up dev environment
-- Wrote `LayerFX` class
-- Developed a `LayerFX` Widget
+# React
 
 ---
 
-## Additional Resources
 
-- [Implementing Accessor](https://developers.arcgis.com/javascript/latest/guide/implementing-accessor/index.html)
-- [Setting up TypeScript](https://developers.arcgis.com/javascript/latest/guide/typescript-setup/index.html)
-- [Widget Development](https://developers.arcgis.com/javascript/latest/guide/custom-widget/index.html)
-- [Styling](https://developers.arcgis.com/javascript/latest/guide/styling/)
-- [ArcGIS API for JavaScript - next](https://github.com/Esri/feedback-js-api-next)
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# React + Bootstrap
 
 ---
 
-## You might also be interested in...
 
-- Customizing the ArcGIS API for JavaScript Widgets
-- ArcGIS API for JavaScript: Getting Started with Web Development
-- ArcGIS API for JavaScript: Programming Patterns and API Fundamentals
-- Accessible Web Mapping Apps: ARIA, WCAG and 508 Compliance
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# React + Calcite Components
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Resources
 
 ---
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Questions? 🤔
-
-> Where can I find the slides/source?
-
-[bit.ly/buildwidgetsds21](http://bit.ly/buildwidgetsds21)
-
-> Where can I submit a question?
-
-[bit.ly/askjsapi](http://bit.ly/askjsapi)
 
 
 ---
