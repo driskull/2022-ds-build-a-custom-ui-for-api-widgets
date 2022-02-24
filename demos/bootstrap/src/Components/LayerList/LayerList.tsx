@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./LayerList.scss";
 import { useLayerListViewModel } from "./hooks";
 
@@ -9,39 +9,83 @@ interface LayerListProps {
 function LayerList(props: LayerListProps) {
   const layerListVM = useLayerListViewModel(props);
 
-  const renderItem = (item: __esri.ListItem) => {
+  const rightCaretIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      className="bi bi-caret-right-fill"
+      viewBox="0 0 16 16"
+    >
+      <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+    </svg>
+  );
+
+  const downCaretIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      className="bi bi-caret-down-fill"
+      viewBox="0 0 16 16"
+    >
+      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+    </svg>
+  );
+
+  const loader = (
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  );
+
+  const renderItem = (item: __esri.ListItem, itemIndex: number) => {
     const value = (item as any).uid;
     const hasChildren = item.children?.length;
     const title = item.title;
     const updating = item.updating;
     const itemNode = hasChildren ? (
       [
-        <div key={value} className="form-check form-switch">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id={`${value}ItemSwitch`}
-            checked={item.visible ? true : false}
-            onChange={() => {
-              item.visible = !item.visible;
+        <div key={`${value}-form-check`} className="parent-item">
+          <button
+            onClick={e => {
+              item.open = !item.open;
             }}
-          />
-          <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
-            {title}
-            {updating ? (
-              <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : null}
-          </label>
+          >
+            {item.open ? downCaretIcon : rightCaretIcon}
+          </button>
+          <div className="form-check form-switch">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id={`${value}ItemSwitch`}
+              checked={item.visible ? true : false}
+              onChange={() => {
+                item.visible = !item.visible;
+              }}
+            />
+            <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
+              <span>{title}</span>
+              {updating ? loader : null}
+            </label>
+          </div>
         </div>,
-        item.visible
-          ? item.children.map(child => (
-              <div key={`${(child as any).uid}`} className="form-check">
+        <ul
+          key={`${value}-list-parent`}
+          className={`list-group list-group-flush${
+            !item.open ? " collapse" : ""
+          }`}
+          id={`listGroup${itemIndex}`}
+        >
+          {item.children.map(child => (
+            <li key={`${(child as any).uid}`} className="list-group-item">
+              <div className="form-check">
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id={`${(child as any).uid}childCheck`}
+                  id={`${(child as any).uid}ChildCheck`}
                   checked={child.visible ? true : false}
                   onChange={() => {
                     child.visible = !child.visible;
@@ -50,18 +94,15 @@ function LayerList(props: LayerListProps) {
                 />
                 <label
                   className="form-check-label"
-                  htmlFor={`${(child as any).uid}childCheck`}
+                  htmlFor={`${(child as any).uid}ChildCheck`}
                 >
-                  {child.title}
-                  {child.updating ? (
-                    <div className="spinner-border text-primary" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : null}
+                  <span>{child.title}</span>
+                  {child.updating ? loader : null}
                 </label>
               </div>
-            ))
-          : null
+            </li>
+          ))}
+        </ul>
       ]
     ) : (
       <div className="form-check form-switch">
@@ -81,11 +122,17 @@ function LayerList(props: LayerListProps) {
       </div>
     );
 
-    return <div key={value}>{itemNode}</div>;
+    return (
+      <li key={`${value}-list-item`} className="list-group-item">
+        {itemNode}
+      </li>
+    );
   };
   return (
     <div className="layer-list">
-      <div>{layerListVM?.operationalItems?.map(renderItem)}</div>
+      <ul className="list-group list-group-flush">
+        {layerListVM?.operationalItems?.map(renderItem)}
+      </ul>
     </div>
   );
 }

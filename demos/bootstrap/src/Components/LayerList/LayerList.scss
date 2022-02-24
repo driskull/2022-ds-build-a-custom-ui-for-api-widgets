@@ -1,17 +1,24 @@
 .layer-list {
   box-sizing: border-box;
-  padding: 3%;
-  .form-check {
-    margin-left: 5%;
-  }
-
-  .form-check.form-switch {
-    margin-left: 0;
-  }
 
   .spinner-border {
     width: 1rem;
     height: 1rem;
     margin-left: 10px;
+  }
+
+  .parent-item {
+    display: flex;
+    align-items: center;
+
+    .form-check {
+      margin-bottom: 0;
+    }
+
+    button {
+      border: 0;
+      background-color: transparent;
+      margin-right: 10px;
+    }
   }
 }
