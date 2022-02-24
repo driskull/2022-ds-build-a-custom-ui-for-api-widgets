@@ -25,7 +25,7 @@ function View(props: ViewProps) {
     props.view.ui.add(home, "top-left");
   }, [props.view]);
 
-  return <div ref={viewRef} id="viewDiv" className="col-9" />;
+  return <div ref={viewRef} id="viewDiv" className="col-8" />;
 }
 
 export default View;
