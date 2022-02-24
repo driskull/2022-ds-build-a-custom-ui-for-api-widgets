@@ -30,6 +30,18 @@ export function useLayerListViewModel(
           if (data) {
             updateState("ready");
           }
+        } else if (
+          data.declaredClass ===
+          "esri.core.Collection<esri.widgets.LayerList.ListItem>"
+        ) {
+          const prevCollection = operationalItems;
+          const listItemCollection = data as __esri.Collection<__esri.ListItem>;
+          const updatedCollection = new Collection([
+            ...listItemCollection.toArray()
+          ]);
+          updateOperationalItems(updatedCollection);
+          prevCollection.removeAll();
+          prevCollection.destroy();
         } else {
           const prevCollection = operationalItems;
           const updatedCollection = new Collection([...operationalItems, data]);

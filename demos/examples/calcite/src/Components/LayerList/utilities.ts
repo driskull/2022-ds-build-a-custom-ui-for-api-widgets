@@ -1,14 +1,15 @@
 import Handles from "@arcgis/core/core/Handles";
 import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
+import { CallBackData, LayerListViewModelState } from "./interfaces";
 
 export function addLayerListHandlers({
   layerListVM,
   handles,
-  callback,
+  callback
 }: {
   layerListVM: __esri.LayerListViewModel;
   handles: Handles;
-  callback?: () => void;
+  callback?: (data: CallBackData) => void;
 }): __esri.Handles {
   handles.removeAll();
 
@@ -28,32 +29,40 @@ export function addLayerListHandlers({
             "visible",
             "visibleAtCurrentScale",
             "updating",
-            "open",
+            "open"
           ],
-          () => callback?.call(null)
+          () => callback?.call(null, item)
         ),
-        item.children.on("change", watchItems),
+        item.children.on("change", watchItems)
       ],
       layerHandleGroup
     );
 
-    item.children.forEach((child) => watchItem(child));
+    item.children.forEach(child => watchItem(child));
   };
 
-  const watchItems = (): void => {
-    callback?.call(null);
+  const watchItems = (data: CallBackData): void => {
+    callback?.call(null, data);
     handles.remove(layerHandleGroup);
 
     handles.add(
-      layerListVM.operationalItems.on("change", watchItems),
+      layerListVM.operationalItems.on("change", () => {
+        watchItems(layerListVM.operationalItems);
+      }),
       layerHandleGroup
     );
 
-    layerListVM.operationalItems.forEach((item) => watchItem(item));
+    layerListVM.operationalItems.forEach((item: __esri.ListItem) =>
+      watchItem(item)
+    );
   };
 
   handles.add([
-    layerListVM.watch("state", () => callback?.call(null)),
-    whenEqualOnce(layerListVM, "state", "ready", watchItems),
+    layerListVM.watch("state", (layerListState: LayerListViewModelState) =>
+      callback?.call(null, layerListState)
+    ),
+    whenEqualOnce(layerListVM, "state", "ready", (value: boolean) =>
+      watchItems(value)
+    )
   ]);
 }

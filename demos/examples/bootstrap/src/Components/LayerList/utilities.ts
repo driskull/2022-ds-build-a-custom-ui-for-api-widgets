@@ -41,23 +41,27 @@ export function addLayerListHandlers({
     item.children.forEach(child => watchItem(child));
   };
 
-  const watchItems = (val): void => {
-    callback?.call(null, val);
+  const watchItems = (data: CallBackData): void => {
+    callback?.call(null, data);
     handles.remove(layerHandleGroup);
 
     handles.add(
-      layerListVM.operationalItems.on("change", watchItems),
+      layerListVM.operationalItems.on("change", () => {
+        watchItems(layerListVM.operationalItems);
+      }),
       layerHandleGroup
     );
 
-    layerListVM.operationalItems.forEach(item => watchItem(item));
+    layerListVM.operationalItems.forEach((item: __esri.ListItem) =>
+      watchItem(item)
+    );
   };
 
   handles.add([
-    layerListVM.watch("state", (state: LayerListViewModelState) =>
-      callback?.call(null, state)
+    layerListVM.watch("state", (layerListState: LayerListViewModelState) =>
+      callback?.call(null, layerListState)
     ),
-    whenEqualOnce(layerListVM, "state", "ready", (value: Boolean) =>
+    whenEqualOnce(layerListVM, "state", "ready", (value: boolean) =>
       watchItems(value)
     )
   ]);
