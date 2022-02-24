@@ -1,84 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./LayerList.scss";
-
-import Handles from "@arcgis/core/core/Handles";
-import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
-import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
+import { useLayerListViewModel } from "./hooks";
 
 interface LayerListProps {
   view: __esri.MapView;
 }
 
 function LayerList(props: LayerListProps) {
-  const handles = new Handles();
-  const layerHandleGroup = "layers";
-  const [layerListVM, setLayerListVM] = useState<LayerListViewModel>(null);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (props.view) {
-      setLayerListVM(
-        new LayerListViewModel({
-          view: props.view
-        })
-      );
-    }
-  }, [props.view]);
-
-  const watchItems = (): void => {
-    handles.remove(layerHandleGroup);
-
-    handles.add(
-      layerListVM.operationalItems.on("change", () => {
-        watchItems();
-        setCount(prev => prev + 1);
-      }),
-      layerHandleGroup
-    );
-
-    layerListVM.operationalItems.forEach(item => watchItem(item));
-  };
-
-  const watchItem = (item: __esri.ListItem): void => {
-    handles.add(
-      [
-        item.watch(
-          [
-            "title",
-            "uid",
-            "visible",
-            "visibleAtCurrentScale",
-            "updating",
-            "open"
-          ],
-          () => setCount(prev => prev + 1)
-        ),
-        item.children.on("change", () => {
-          watchItems();
-          setCount(prev => prev + 1);
-        })
-      ],
-      layerHandleGroup
-    );
-
-    item.children.forEach(child => watchItem(child));
-  };
-
-  useEffect(() => {
-    if (layerListVM) {
-      handles.add([
-        layerListVM.watch("state", () => setCount(prev => prev + 1)),
-        whenEqualOnce(layerListVM, "state", "ready", () => {
-          watchItems();
-        })
-      ]);
-
-      return function cleanup() {
-        handles.removeAll();
-        handles.destroy();
-      };
-    }
-  }, [layerListVM]);
+  const layerListVM = useLayerListViewModel(props);
 
   const renderItem = (item: __esri.ListItem) => {
     const value = (item as any).uid;
