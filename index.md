@@ -47,8 +47,8 @@ JS API + [TypeScript](http://www.typescriptlang.org/)
 
 # Demo: [Dev Environment](../demos/1-setup/)
 
+- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
 - [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
-- [Typescript setup](https://developers.arcgis.com/javascript/latest/typescript-setup/)
 
 ---
 
@@ -56,7 +56,7 @@ JS API + [TypeScript](http://www.typescriptlang.org/)
 
 # Demo Recap: Dev Environment
 
-- Install of TypeScript + JS API typings
+- Setup build with esm
 - Built simple mapping application
 
 ---
