@@ -49,11 +49,7 @@ function LayerList(props: LayerListProps) {
     const itemNode = hasChildren ? (
       [
         <div key={`${value}-form-check`} className="parent-item">
-          <button
-            onClick={e => {
-              item.open = !item.open;
-            }}
-          >
+          <button onClick={() => (item.open = !item.open)}>
             {item.open ? downCaretIcon : rightCaretIcon}
           </button>
           <div className="form-check form-switch">
@@ -62,9 +58,7 @@ function LayerList(props: LayerListProps) {
               type="checkbox"
               id={`${value}ItemSwitch`}
               checked={item.visible ? true : false}
-              onChange={() => {
-                item.visible = !item.visible;
-              }}
+              onChange={() => (item.visible = !item.visible)}
             />
             <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
               <span>{title}</span>
@@ -79,7 +73,7 @@ function LayerList(props: LayerListProps) {
           }`}
           id={`listGroup${itemIndex}`}
         >
-          {item.children.map(child => (
+          {item.children.map((child) => (
             <li key={`${(child as any).uid}`} className="list-group-item">
               <div className="form-check">
                 <input
@@ -87,9 +81,7 @@ function LayerList(props: LayerListProps) {
                   type="checkbox"
                   id={`${(child as any).uid}ChildCheck`}
                   checked={child.visible ? true : false}
-                  onChange={() => {
-                    child.visible = !child.visible;
-                  }}
+                  onChange={() => (child.visible = !child.visible)}
                   disabled={!child.visibleAtCurrentScale ? true : false}
                 />
                 <label
@@ -102,7 +94,7 @@ function LayerList(props: LayerListProps) {
               </div>
             </li>
           ))}
-        </ul>
+        </ul>,
       ]
     ) : (
       <div className="form-check form-switch">
@@ -111,9 +103,7 @@ function LayerList(props: LayerListProps) {
           type="checkbox"
           id={`${value}ItemSwitch`}
           checked={item.visible ? true : false}
-          onChange={() => {
-            item.visible = !item.visible;
-          }}
+          onChange={() => (item.visible = !item.visible)}
           disabled={!item.visibleAtCurrentScale ? true : false}
         />
         <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>

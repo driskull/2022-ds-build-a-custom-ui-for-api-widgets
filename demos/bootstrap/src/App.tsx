@@ -13,26 +13,35 @@ import applicationjSON from "../src/config/application.json";
 import esriConfig from "@arcgis/core/config";
 
 function App() {
-  const { webmap, title, portalUrl } = applicationjSON;
+  const { webmap, portalUrl } = applicationjSON;
   esriConfig.portalUrl = portalUrl;
 
   const [view, setView] = useState(null);
+  const [mapTitle, setMapTitle] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const map = new WebMap({
       portalItem: {
-        id: webmap
-      }
+        id: webmap,
+      },
     });
+
     const mapView = new MapView({
-      map
+      map,
     });
+
     setView(mapView);
+
+    mapView.when().then((view) => {
+      setMapTitle(view.map.portalItem.title);
+      setLoading(false);
+    });
   }, []);
 
   return (
     <div className="app container-fluid">
-      <Header title={title} />
+      <Header title={loading ? "Loading..." : mapTitle} />
       <div className="content row">
         <SidePanel view={view} />
         <View view={view} />
