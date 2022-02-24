@@ -10,7 +10,7 @@
 
 - Developer environment setup
 - Widget fundamentals
-- Creating custom UI
+- Creating custom widget UI
   - React
   - React + Bootstrap
   - React + Calcite Design System
@@ -162,12 +162,6 @@ const shorthand = { person };
   - Causes a change on VM or View
 - View updates <!-- .element: class="fragment" data-fragment-index="2" -->
   - Renders again due to changes on VM
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Creating custom user interfaces
 
 ---
 
