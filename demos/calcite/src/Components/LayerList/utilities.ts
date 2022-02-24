@@ -1,15 +1,19 @@
 import Handles from "@arcgis/core/core/Handles";
-import { whenEqualOnce } from "@arcgis/core/core/watchUtils";
-import { CallBackData, LayerListViewModelState } from "./interfaces";
+import { init } from "@arcgis/core/core/watchUtils";
+import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
 
 export function addLayerListHandlers({
   layerListVM,
   handles,
-  callback
+  onStateChange,
+  onOperationalItemsChange,
 }: {
   layerListVM: __esri.LayerListViewModel;
   handles: Handles;
-  callback?: (data: CallBackData) => void;
+  onStateChange?: (state: LayerListViewModel["state"]) => void;
+  onOperationalItemsChange?: (
+    operationalItems: LayerListViewModel["operationalItems"]
+  ) => void;
 }): __esri.Handles {
   handles.removeAll();
 
@@ -29,26 +33,28 @@ export function addLayerListHandlers({
             "visible",
             "visibleAtCurrentScale",
             "updating",
-            "open"
+            "open",
           ],
-          () => callback?.call(null, item)
+          () => operationalItemsChanged()
         ),
-        item.children.on("change", watchItems)
+        item.children.on("change", watchItems),
       ],
       layerHandleGroup
     );
 
-    item.children.forEach(child => watchItem(child));
+    item.children.forEach((child) => watchItem(child));
   };
 
-  const watchItems = (data: CallBackData): void => {
-    callback?.call(null, data);
+  const operationalItemsChanged = () => {
+    onOperationalItemsChange?.call(null, layerListVM.operationalItems.clone());
+  };
+
+  const watchItems = (): void => {
+    operationalItemsChanged();
     handles.remove(layerHandleGroup);
 
     handles.add(
-      layerListVM.operationalItems.on("change", () => {
-        watchItems(layerListVM.operationalItems);
-      }),
+      layerListVM.operationalItems.on("change", () => watchItems()),
       layerHandleGroup
     );
 
@@ -57,12 +63,11 @@ export function addLayerListHandlers({
     );
   };
 
-  handles.add([
-    layerListVM.watch("state", (layerListState: LayerListViewModelState) =>
-      callback?.call(null, layerListState)
-    ),
-    whenEqualOnce(layerListVM, "state", "ready", (value: boolean) =>
-      watchItems(value)
+  handles.add(
+    init(layerListVM, "state", (state: LayerListViewModel["state"]) =>
+      onStateChange?.call(null, state)
     )
-  ]);
+  );
+
+  watchItems();
 }
