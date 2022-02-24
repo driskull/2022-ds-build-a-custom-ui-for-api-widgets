@@ -34,50 +34,6 @@ JS API + [TypeScript](http://www.typescriptlang.org/)
 
 ---
 
-# Typed JavaScript
-
-```ts
-interface Person {
-  name: string;
-  age: number;
-}
-
-const person: Person = { name: "Franco", age: 35 };
-
-person.age = "24"; // Type '"24"' is not assignable to type 'number'
-person.height = 5.11; // Property 'height' does not exist on type 'Person'
-
-function greet(person: Person): void {
-  console.log("Hello " + person.name + "!");
-}
-
-greet(person); // Hello Franco!
-```
-
----
-
-# Modern JavaScript
-
-```ts
-// let and const
-let canChange = 5;
-const cannotChange = 5;
-
-// fat arrow functions
-const logName = (person) => console.log(person.name);
-
-// template strings
-const greeting = `Hello, my name is ${person.name} and I am ${person.age} years old.`;
-
-// destructuring. (unpack values into distinct variables)
-const [{ name, age }] = people;
-
-// property shorthand
-const shorthand = { person };
-```
-
----
-
 # IDE Support
 
 - Visual Studio Code
@@ -91,6 +47,7 @@ const shorthand = { person };
 
 # Demo: [Dev Environment](../demos/1-setup/)
 
+- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
 - [Typescript setup](https://developers.arcgis.com/javascript/latest/typescript-setup/)
 
 ---
