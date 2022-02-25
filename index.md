@@ -30,7 +30,7 @@
 <!-- background: section/content will tie into widget dev -->
 <!-- background: including TS in all steps because it's needed for widget dev -->
 
-JS API + [TypeScript](http://www.typescriptlang.org/)
+JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
 
 ---
 
@@ -80,6 +80,7 @@ JS API + [TypeScript](http://www.typescriptlang.org/)
 
 - Reusable
 - Modular
+- Configurable
 - Help build more complex apps
 
 ---
@@ -119,6 +120,12 @@ JS API + [TypeScript](http://www.typescriptlang.org/)
   - Causes a change on VM or View
 - View updates <!-- .element: class="fragment" data-fragment-index="2" -->
   - Renders again due to changes on VM
+
+---
+
+# Building custom UI
+
+- Use viewModels to render custom UI
 
 ---
 
