@@ -28,7 +28,7 @@
 
 # What are widgets?
 
-- Component of UI
+- A pomponent of user interface
 - Perform a function
 - Interactive
 - Stateful
@@ -37,8 +37,7 @@
 
 # Why use widgets?
 
-- Reusable
-- Modular
+- Reusable & modular
 - Configurable
 - Help build more complex apps
 
@@ -48,7 +47,7 @@
 
 Widgets are composed of Views & ViewModels
 
-- Logic is separate from presentation
+- Business loogic is separate from presentation
 - Reusable
 - UI replacement
 - Framework integration
@@ -59,10 +58,9 @@ Widgets are composed of Views & ViewModels
 
 Presentation of the widget
 
-- Extend `esri/widgets/Widget`
-- Use ViewModel APIs to render the UI
-- Focus on UI
-- DOM structure
+- Extends `esri/widgets/Widget`
+- Focused on UI & DOM structure
+- Use ViewModel APIs to render UI
 
 ---
 
@@ -70,9 +68,9 @@ Presentation of the widget
 
 Business logic of the widget
 
-- Extend `esri/core/Accessor`
-- Provide APIs to support View
-- Focus on business logic
+- Extends `esri/core/Accessor`
+- Provides APIs to support View
+- Focuses on business logic
 - No DOM structure
 
 ---
