@@ -35,7 +35,7 @@
 
 ---
 
-# Why use widgets?
+# Benefits of Widgets
 
 - Reusable & modular
 - Configurable
@@ -43,7 +43,7 @@
 
 ---
 
-# Widget Composition
+# Widget Architecture
 
 Widgets are composed of Views & ViewModels
 
@@ -54,7 +54,7 @@ Widgets are composed of Views & ViewModels
 
 ---
 
-# Views
+# Widget Views
 
 Presentation of the widget
 
@@ -64,7 +64,7 @@ Presentation of the widget
 
 ---
 
-# ViewModels
+# Widget ViewModels
 
 Business logic of the widget
 
@@ -88,10 +88,12 @@ Business logic of the widget
 
 ---
 
-# Best practices
+# Custom Widget Best practices
 
-- Building custom UI
+How to build a custom UI for a widget?
+
   - Use viewModels to render custom UI
+  - Use your framework + CSS library of choice
 
 ---
 
