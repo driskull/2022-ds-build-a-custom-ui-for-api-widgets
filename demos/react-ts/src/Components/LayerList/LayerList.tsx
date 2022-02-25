@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./LayerList.scss";
 
-import LayerListViewModel from "@arcgis/core/widgets/LayerList/LayerListViewModel";
+import { useLayerListViewModel } from "./hooks";
 
 interface LayerListProps {
   view: __esri.MapView;
 }
 
 function LayerList(props: LayerListProps) {
-  const [layerListVM, setLayerListVM] = useState(null);
-
-  useEffect(() => {
-    if (props.view) {
-      setLayerListVM(
-        new LayerListViewModel({
-          view: props.view
-        })
-      );
-    }
-  }, [props.view]);
+  const layerListVM = useLayerListViewModel(props);
 
   useEffect(() => {
     if (layerListVM) {
