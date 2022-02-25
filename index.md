@@ -8,7 +8,7 @@
 
 # Agenda
 
-- Developer environment setup
+- Introduction
 - Widget fundamentals
 - Creating custom widget UI
   - React
@@ -21,43 +21,7 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Developer environment setup
-
----
-
-# Developer environment
-
-<!-- background: section/content will tie into widget dev -->
-<!-- background: including TS in all steps because it's needed for widget dev -->
-
-JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
-
----
-
-# IDE Support
-
-- Visual Studio Code
-- WebStorm
-- Sublime Text
-- and more!
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo: [Dev Environment](../demos/1-setup/)
-
-- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
-- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-3.png" data-background-size="cover" -->
-
-# Demo Recap: Dev Environment
-
-- Setup build with esm
-- Built simple mapping application
+# Introduction
 
 ---
 
@@ -85,28 +49,36 @@ JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://dev
 
 ---
 
-# Architecture
+# Widget Composition
 
-- Views + ViewModels
-  - Separation of concerns
-  - UI replacement
-  - Easier integration
+Widgets are composed of Views & ViewModels
+
+- Logic is separate from presentation
+- Reusable
+- UI replacement
+- Framework integration
 
 ---
 
 # Views
 
+Presentation of the widget
+
 - Extend `esri/widgets/Widget`
-- Rely on ViewModel
+- Use ViewModel APIs to render the UI
 - Focus on UI
+- DOM structure
 
 ---
 
 # ViewModels
 
+Business logic of the widget
+
 - Extend `esri/core/Accessor`
 - Provide APIs to support View
 - Focus on business logic
+- No DOM structure
 
 ---
 
@@ -129,7 +101,14 @@ JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://dev
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+# Developer environment
+
+JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+
+- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
+- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
+
+---
 
 # React
 
