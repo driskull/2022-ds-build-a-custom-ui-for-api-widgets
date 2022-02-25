@@ -10,7 +10,6 @@
 
 # Agenda
 
-- Introduction
 - Widget fundamentals
 - Creating custom widget UI
   - Setup JSAPI + React
@@ -18,21 +17,6 @@
   - React + Calcite Design System
 - Resources
 - Q & A
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Introduction
-
----
-
-# Developer environment
-
-[JS API](https://developers.arcgis.com/javascript/latest/) + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
-
-- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
-- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
 
 ---
 
@@ -114,6 +98,15 @@ Business logic of the widget
 ---
 
 # React
+
+---
+
+# Developer environment
+
+[JS API](https://developers.arcgis.com/javascript/latest/) + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+
+- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
+- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
 
 ---
 
