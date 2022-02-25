@@ -1,7 +1,9 @@
 <!-- .slide: data-background="img/2022/dev-summit/bg-1.png" data-background-size="cover" -->
 
 <h1 style="text-align: left; font-size: 80px;"><div><small>ArcGIS API for JavaScript:</small></div> Build a custom UI for API widgets</h1>
-<p style="text-align: left; font-size: 30px; color: var(--r-section-subhead-color);">Matt Driscoll, Ryan Libed</p>
+
+<p style="display: flex; line-height: normal; gap: 14px; color: var(--r-section-subhead-color);"><calcite-avatar scale="l" full-name="Matt Driscoll" thumbnail="./img/matt.jpeg"></calcite-avatar>Matt Driscoll <calcite-avatar scale="l" full-name="Ryan Libed" thumbnail="./img/ryan.jpeg" style="margin-left: 14px"></calcite-avatar>Ryan Libed</p>
+
 <p style="text-align: left; font-size: 30px;">Slides: <a href="https://esriurl.com/ds2022-custom-ui"><code>esriurl.com/ds2022-custom-ui</code></a></p>
 
 ---
@@ -11,7 +13,7 @@
 - Introduction
 - Widget fundamentals
 - Creating custom widget UI
-  - React
+  - Setup JSAPI + React
   - React + Bootstrap
   - React + Calcite Design System
 - Resources
@@ -22,6 +24,15 @@
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Introduction
+
+---
+
+# Developer environment
+
+[JS API](https://developers.arcgis.com/javascript/latest/) + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+
+- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
+- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
 
 ---
 
@@ -95,18 +106,10 @@ Business logic of the widget
 
 ---
 
-# Building custom UI
+# Best practices
 
-- Use viewModels to render custom UI
-
----
-
-# Developer environment
-
-JS API + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
-
-- [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
-- [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
+- Building custom UI
+  - Use viewModels to render custom UI
 
 ---
 
