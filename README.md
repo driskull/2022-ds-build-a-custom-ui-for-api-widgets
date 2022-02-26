@@ -1,4 +1,4 @@
-# ArcGIS API for JavaScript: Build a custom UI for API widgets
+# ArcGIS API for JavaScript: Build a custom UI for API widgets (Session)
 
 [Preview presentation](https://driskull.github.io/2022-ds-build-a-custom-ui-for-api-widgets)
 
