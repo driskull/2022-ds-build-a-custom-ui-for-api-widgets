@@ -92,7 +92,9 @@ Business logic of the widget
 
 How to build a custom UI for a widget?
 
-  - Use viewModels to render custom UI
+  - Use widget viewModels to render custom UI
+    - Watch properties state
+    - Events
   - Use your preferred
     - Framework
     - CSS Library
