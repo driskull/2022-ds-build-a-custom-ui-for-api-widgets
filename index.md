@@ -99,13 +99,39 @@ How to build a custom UI for a widget?
 
 ---
 
-# React
+# React + TypeScript
+
+[React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+
+[TypeScript](http://www.typescriptlang.org/) is JavaScript with syntax for types.
 
 ---
 
-# Developer environment
+# Create React App (CLI)
 
-[JS API](https://developers.arcgis.com/javascript/latest/) + [TypeScript](http://www.typescriptlang.org/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
+New Apps:
+<pre data-id="code-animation"><code class="hljs" data-trim>
+npx create-react-app my-app --template typescript
+
+# or 
+
+yarn create react-app my-app --template typescript
+</code></pre>
+
+Existing Apps:
+<pre data-id="code-animation"><code class="hljs" data-trim>
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
+# or 
+
+yarn add typescript @types/node @types/react @types/react-dom @types/jest
+</code></pre>
+
+---
+
+## ArcGIS API for JavaScript
+
+[JS API](https://developers.arcgis.com/javascript/latest/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
 
 - [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
 - [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
