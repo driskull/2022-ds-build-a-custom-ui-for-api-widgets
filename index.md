@@ -161,6 +161,66 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 # React + Calcite Components
 
+Take LayerList in React and add Calcite Components
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite: Esri's design system
+
+- Visual language for products
+  - Design guidelines
+    - Color, Spacing, Typography...
+  - Graphic resources (Icons, symbols, Figma UI Kit)
+  - Interactive documentation
+    - Patterns & best practices
+  - Reusable components
+- Closes the gap between designers and UI engineers
+- [Documentation](https://developers.arcgis.com/calcite-design-system/)
+
+---
+
+# Calcite components
+
+- [Web Components](https://developers.arcgis.com/calcite-design-system/components/) for Calcite Design System
+  - 50+ web components
+    - Ready to use
+    - Reusable
+    - Provides a library of patterns
+  - Internal & external use
+    - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
+  - Easily build beautiful consistent apps
+
+---
+
+# Benefits of Calcite
+
+- Consistent UX
+- Speed up development timelines
+- Accessibility
+- Web standards
+- Framework integration
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# About Web Components
+
+- Custom elements
+  - Browser-compatible elements
+  - Use native APIs
+  - DOM element lifecycle
+- [Slotting](https://developers.arcgis.com/calcite-design-system/faq/#what-are-slots)
+- Shadow DOM
+  - Encapsulates component HTML & CSS
+  - `<slot>` tag for distributing content
+
+---
+
+# DEMO: React + Calcite Components
+
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
