@@ -11,6 +11,7 @@
 # Agenda
 
 - Widget fundamentals
+- LayerList Widget
 - Creating custom widget UI
   - Setup JSAPI + React
   - React + Bootstrap
@@ -101,6 +102,14 @@ How to build a custom UI for a widget?
 
 ---
 
+# LayerList Widget
+
+[![LayerList Widget](img/layerlist.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
+- [Sample]((https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/))
+- [SDK](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html)
+
+---
+
 # React + TypeScript
 
 [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
@@ -115,7 +124,7 @@ New Apps:
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npx create-react-app my-app --template typescript
 
-# or 
+# or
 
 yarn create react-app my-app --template typescript
 </code></pre>
@@ -124,7 +133,7 @@ Existing Apps:
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 
-# or 
+# or
 
 yarn add typescript @types/node @types/react @types/react-dom @types/jest
 </code></pre>
