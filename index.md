@@ -29,7 +29,7 @@
 
 # What are widgets?
 
-- A pomponent of user interface
+- A component of UI
 - Perform a function
 - Interactive
 - Stateful
@@ -46,7 +46,7 @@
 
 # Widget Architecture
 
-Widgets are composed of Views & ViewModels
+ArcGIS Javascript API Widgets are composed of Views & ViewModels
 
 - Business loogic is separate from presentation
 - Reusable
@@ -99,6 +99,7 @@ How to build a custom UI for a widget?
   - Use your preferred
     - Framework
     - CSS Library
+    - Design System
 
 ---
 
