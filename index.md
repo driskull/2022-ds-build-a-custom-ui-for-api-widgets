@@ -111,6 +111,36 @@ How to build a custom UI for a widget?
 
 ---
 
+# Design
+
+![App Design](img/app-design.png)
+
+---
+
+# Design Components
+
+![Design Component](img/pieces.png)
+
+---
+
+# PickList Calcite Component
+
+[![PickList](img/pick-list.png)](https://developers.arcgis.com/calcite-design-system/components/pick-list/)
+
+---
+
+# Panel
+
+[![Panel](img/panel.png)](https://developers.arcgis.com/calcite-design-system/components/panel/)
+
+---
+
+# Shell/Shell Panel
+
+[![PickList](img/shell.png)](https://developers.arcgis.com/calcite-design-system/components/shell/)
+
+---
+
 # React + TypeScript
 
 [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
