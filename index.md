@@ -254,7 +254,8 @@ Take LayerList in React and add Calcite Components
 
 # Calcite Components React
 
-A set of React components that wrap Calcite Components
+- A set of React components that wrap Calcite Components
+- [NPM Package](https://www.npmjs.com/package/@esri/calcite-components-react)
 
 ```
 npm install --save @esri/calcite-components-react
