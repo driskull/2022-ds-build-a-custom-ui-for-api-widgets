@@ -1,13 +1,14 @@
 {
-  "name": "react-ts",
+  "name": "calcite-start",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@arcgis/core": "^4.22.2",
+    "@esri/calcite-components-react": "^0.19.0",
     "install": "^0.13.0",
     "npm": "^8.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,8 +39,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.22",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^16.7.0",
+    "@types/react-dom": "^16.7.0",
     "@vitejs/plugin-react": "^1.1.4",
     "sass": "^1.49.7",
     "typescript": "^4.5.5",
