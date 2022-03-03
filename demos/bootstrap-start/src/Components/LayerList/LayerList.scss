@@ -1,0 +1,28 @@
+.layer-list {
+  box-sizing: border-box;
+
+  .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 10px;
+  }
+
+  .parent-item {
+    display: flex;
+    align-items: center;
+
+    .form-check {
+      margin-bottom: 0;
+    }
+
+    button {
+      border: 0;
+      background-color: transparent;
+      margin-right: 10px;
+    }
+  }
+
+  .list-group-item.disabled {
+    pointer-events: all;
+  }
+}

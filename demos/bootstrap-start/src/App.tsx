@@ -8,7 +8,7 @@ import SidePanel from "./Components/SidePanel/SidePanel";
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
 
-import applicationjSON from "../src/config/application.json";
+import applicationjSON from "./config/application.json";
 
 import esriConfig from "@arcgis/core/config";
 
@@ -23,26 +23,28 @@ function App() {
   useEffect(() => {
     const map = new WebMap({
       portalItem: {
-        id: webmap,
-      },
+        id: webmap
+      }
     });
 
     const mapView = new MapView({
-      map,
+      map
     });
 
     setView(mapView);
 
-    mapView.when().then((view) => {
+    mapView.when().then(view => {
       setMapTitle(view.map.portalItem.title);
       setLoading(false);
     });
   }, []);
 
   return (
-    <div className="app container-fluid">
+    <div className="app">
+      {/* <div className="app container-fluid"> */}
       <Header title={loading ? "Loading..." : mapTitle} />
-      <div className="content row">
+      <div className="content">
+        {/* <div className="content row"> */}
         <SidePanel view={view} />
         <View view={view} />
       </div>
