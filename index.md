@@ -4,7 +4,7 @@
 
 <p style="display: flex; line-height: normal; gap: 14px; color: var(--r-section-subhead-color);"><calcite-avatar scale="l" full-name="Matt Driscoll" thumbnail="./img/matt.jpeg"></calcite-avatar>Matt Driscoll <calcite-avatar scale="l" full-name="Ryan Libed" thumbnail="./img/ryan.jpeg" style="margin-left: 14px"></calcite-avatar>Ryan Libed</p>
 
-<p style="text-align: left; font-size: 30px;">Slides: <a href="https://esriurl.com/ds2022-custom-ui"><code>esriurl.com/ds2022-custom-ui</code></a></p>
+<p style="text-align: left; font-size: 30px;">Slides + Demos: <a href="https://esriurl.com/ds2022-custom-ui"><code>esriurl.com/ds2022-custom-ui</code></a></p>
 
 ---
 
@@ -316,6 +316,8 @@ npm install --save @esri/calcite-components-react
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Questions? 🤔
+
+<p>Slides + Demos: <a href="https://esriurl.com/ds2022-custom-ui"><code>esriurl.com/ds2022-custom-ui</code></a></p>
 
 ---
 
