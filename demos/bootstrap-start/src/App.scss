@@ -9,10 +9,11 @@ body,
   height: 100%;
 }
 
-.row {
-  --bs-gutter-x: 0;
-}
+// .row {
+//   --bs-gutter-x: 0;
+// }
 
 .content {
+  display: flex;
   height: 95%;
 }

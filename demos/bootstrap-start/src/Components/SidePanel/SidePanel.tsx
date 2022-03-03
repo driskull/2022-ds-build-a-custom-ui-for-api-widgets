@@ -9,7 +9,8 @@ interface SidePanelProps {
 
 function SidePanel(props: SidePanelProps) {
   return (
-    <div className="side-panel col-4">
+    <div className="side-panel">
+      {/* <div className="side-panel col-4"> */}
       <LayerList view={props.view} />
     </div>
   );
