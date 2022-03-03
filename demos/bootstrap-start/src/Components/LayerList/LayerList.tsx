@@ -6,10 +6,11 @@ interface LayerListProps {
   view: __esri.MapView;
 }
 
+// STEP 8: ADD BOOTSTRAP CLASSES TO LIST ITEMS
+
 function LayerList(props: LayerListProps) {
   const layerListVM = useLayerListViewModel(props);
 
-  // STEP 8
   // const rightCaretIcon = (
   //   <svg
   //     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,6 @@ function LayerList(props: LayerListProps) {
   //   </svg>
   // );
 
-  // STEP 9
   // const loader = (
   //   <div className="spinner-border text-primary" role="status">
   //     <span className="visually-hidden">Loading...</span>
@@ -51,21 +51,21 @@ function LayerList(props: LayerListProps) {
     const itemNode = hasChildren ? (
       [
         <div key={`${value}-form-check`} className="parent-item">
-          {/* STEP 10 */}
           {/* <button onClick={() => (item.open = !item.open)}>
             {item.open ? downCaretIcon : rightCaretIcon}
           </button> */}
-          <div className="form-check form-switch">
+          <div>
+            {/* <div className="form-check form-switch"> */}
             <input
-              className="form-check-input"
+              // className="form-check-input"
               type="checkbox"
               id={`${value}ItemSwitch`}
               checked={item.visible ? true : false}
               onChange={() => (item.visible = !item.visible)}
             />
-            <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
+            <label htmlFor={`${value}ItemSwitch`}>
+              {/* <label className="form-check-label" htmlFor={`${value}ItemSwitch`}> */}
               <span>{title}</span>
-              {/* STEP 11 */}
               {/* {updating ? loader : null} */}
               {updating ? "Loading..." : null}
             </label>
@@ -73,32 +73,32 @@ function LayerList(props: LayerListProps) {
         </div>,
         <ul
           key={`${value}-list-parent`}
-          className={`list-group list-group-flush${
-            !item.open ? " collapse" : ""
-          }`}
+          // className={`list-group list-group-flush${
+          //   !item.open ? " collapse" : ""
+          // }`}
           id={`listGroup${itemIndex}`}
         >
           {item.children.map(child => (
             <li
               key={`${(child as any).uid}`}
-              className={`list-group-item${
-                !child.visibleAtCurrentScale ? " disabled" : ""
-              }`}
+              // className={`list-group-item${
+              //   !child.visibleAtCurrentScale ? " disabled" : ""
+              // }`}
             >
-              <div className="form-check">
+              <div>
+                {/* <div className="form-check"> */}
                 <input
-                  className="form-check-input"
+                  // className="form-check-input"
                   type="checkbox"
                   id={`${(child as any).uid}ChildCheck`}
                   checked={child.visible ? true : false}
                   onChange={() => (child.visible = !child.visible)}
                 />
                 <label
-                  className="form-check-label"
+                  // className="form-check-label"
                   htmlFor={`${(child as any).uid}ChildCheck`}
                 >
                   <span>{child.title}</span>
-                  {/* STEP 11 */}
                   {/* {updating ? loader : null} */}
                   {child.updating ? "Loading..." : null}
                 </label>
@@ -108,11 +108,9 @@ function LayerList(props: LayerListProps) {
         </ul>
       ]
     ) : (
-      // Step 12
       <div>
         {/* <div className="form-check form-switch"> */}
         <input
-          // STEP 13
           // className="form-check-input"
           type="checkbox"
           id={`${value}ItemSwitch`}
@@ -120,7 +118,6 @@ function LayerList(props: LayerListProps) {
           onChange={() => (item.visible = !item.visible)}
         />
         <label htmlFor={`${value}ItemSwitch`}>
-          {/* STEP 14 */}
           {/* <label className="form-check-label" htmlFor={`${value}ItemSwitch`}> */}
           {title}
         </label>
@@ -130,7 +127,6 @@ function LayerList(props: LayerListProps) {
     return (
       <li
         key={`${value}-list-item`}
-        // STEP 15
         // className={`list-group-item${
         //   !item.visibleAtCurrentScale ? " disabled" : ""
         // }`}
@@ -141,7 +137,8 @@ function LayerList(props: LayerListProps) {
   };
   return (
     <div className="layer-list">
-      <ul className="list-group list-group-flush">
+      <ul>
+        {/* <ul className="list-group list-group-flush"> */}
         {layerListVM?.operationalItems?.map(renderItem)}
       </ul>
     </div>

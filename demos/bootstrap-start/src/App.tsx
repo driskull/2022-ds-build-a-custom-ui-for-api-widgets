@@ -40,11 +40,11 @@ function App() {
   }, []);
   // STEP 2
   return (
-    <div className="app">
-      {/* <div className="app container-fluid"> */}
+    // <div className="app">
+    <div className="app container-fluid">
       <Header title={loading ? "Loading..." : mapTitle} />
+      {/* <div className="content row"> */}
       <div className="content">
-        {/* <div className="content row"> */}
         <SidePanel view={view} />
         <View view={view} />
       </div>
