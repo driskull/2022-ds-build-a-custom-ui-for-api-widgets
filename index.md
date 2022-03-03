@@ -313,31 +313,11 @@ npm install --save @esri/calcite-components-react
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+# Please Share Your Feedback in the App​
 
-Please provide your feedback for this session by clicking on the session survey link directly below the video.
-
-<!-- .element: style="margin: 0 20%;" -->
+![Rate](img/rate.png)
 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-8.png" data-background-size="cover" -->
 
----
-
-<h1 style="text-align: left; font-size: 48px;">Section Header</h1>
-<p style="text-align: left; font-size: 24px; color: var(--r-section-subhead-color);">Section Subhead</p>
-
----
-
-<h2 data-id="code-title">Code Example</h2>
-<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-import React, { useState } from 'react';
-
-function Example() {
-const [count, setCount] = useState(0);
-return (
-...
-);
-}
-</code></pre>
