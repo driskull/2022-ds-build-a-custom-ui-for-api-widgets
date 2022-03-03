@@ -29,7 +29,7 @@ function View(props: ViewProps) {
     <div
       ref={viewRef}
       id="viewDiv"
-      // STEP 8: Set grid column to 8
+      // STEP 7: Set grid column to 8
       // className="col-8"
     />
   );

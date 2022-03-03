@@ -43,7 +43,7 @@ function App() {
     <div className="app">
       <Header title={loading ? "Loading..." : mapTitle} />
       <div
-        // STEP 3
+        // STEP 2
         className="content"
         // className="content row"
       >

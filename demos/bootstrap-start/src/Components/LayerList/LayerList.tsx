@@ -6,7 +6,7 @@ interface LayerListProps {
   view: __esri.MapView;
 }
 
-// STEP 10: ADD BOOTSTRAP CLASSES TO LIST ITEMS
+// STEP 9: ADD BOOTSTRAP CLASSES TO LIST ITEMS
 
 function LayerList(props: LayerListProps) {
   const layerListVM = useLayerListViewModel(props);

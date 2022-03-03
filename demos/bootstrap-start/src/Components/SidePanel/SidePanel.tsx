@@ -10,7 +10,7 @@ interface SidePanelProps {
 function SidePanel(props: SidePanelProps) {
   return (
     <div
-      // STEP 6: Set grid column to 4
+      // STEP 5: Set grid column to 4
       className="side-panel"
       // className="side-panel col-4"
     >
