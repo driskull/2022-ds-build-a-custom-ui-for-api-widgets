@@ -34,6 +34,8 @@
 - Interactive
 - Stateful
 
+![simple UI](img/simple-ui.png)
+
 ---
 
 # Benefits of Widgets
@@ -78,7 +80,7 @@ Business logic of the widget
 
 # View + ViewModel in action
 
-<!-- todo: maybe create graphic for this -->
+![data binding](img/data-binding.png)
 
 - View renders the state of the VM
   - Looks at properties on VM and renders accordingly
