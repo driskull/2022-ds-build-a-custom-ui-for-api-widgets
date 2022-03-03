@@ -6,6 +6,7 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
+  // STEP 3
   return (
     // <header className="header row">
     <header className="header">

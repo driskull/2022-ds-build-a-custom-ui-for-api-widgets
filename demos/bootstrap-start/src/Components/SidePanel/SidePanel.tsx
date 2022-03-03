@@ -8,6 +8,7 @@ interface SidePanelProps {
 }
 
 function SidePanel(props: SidePanelProps) {
+  // STEP 4
   return (
     <div className="side-panel">
       {/* <div className="side-panel col-4"> */}

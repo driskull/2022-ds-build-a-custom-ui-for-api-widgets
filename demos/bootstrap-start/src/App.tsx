@@ -38,7 +38,7 @@ function App() {
       setLoading(false);
     });
   }, []);
-
+  // STEP 2
   return (
     <div className="app">
       {/* <div className="app container-fluid"> */}

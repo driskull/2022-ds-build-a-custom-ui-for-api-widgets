@@ -9,6 +9,7 @@ interface LayerListProps {
 function LayerList(props: LayerListProps) {
   const layerListVM = useLayerListViewModel(props);
 
+  // STEP 8
   // const rightCaretIcon = (
   //   <svg
   //     xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +36,12 @@ function LayerList(props: LayerListProps) {
   //   </svg>
   // );
 
-  const loader = (
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  );
+  // STEP 9
+  // const loader = (
+  //   <div className="spinner-border text-primary" role="status">
+  //     <span className="visually-hidden">Loading...</span>
+  //   </div>
+  // );
 
   const renderItem = (item: __esri.ListItem, itemIndex: number) => {
     const value = (item as any).uid;
@@ -49,6 +51,7 @@ function LayerList(props: LayerListProps) {
     const itemNode = hasChildren ? (
       [
         <div key={`${value}-form-check`} className="parent-item">
+          {/* STEP 10 */}
           {/* <button onClick={() => (item.open = !item.open)}>
             {item.open ? downCaretIcon : rightCaretIcon}
           </button> */}
@@ -62,7 +65,9 @@ function LayerList(props: LayerListProps) {
             />
             <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
               <span>{title}</span>
-              {updating ? loader : null}
+              {/* STEP 11 */}
+              {/* {updating ? loader : null} */}
+              {updating ? "Loading..." : null}
             </label>
           </div>
         </div>,
@@ -93,7 +98,9 @@ function LayerList(props: LayerListProps) {
                   htmlFor={`${(child as any).uid}ChildCheck`}
                 >
                   <span>{child.title}</span>
-                  {child.updating ? loader : null}
+                  {/* STEP 11 */}
+                  {/* {updating ? loader : null} */}
+                  {child.updating ? "Loading..." : null}
                 </label>
               </div>
             </li>
@@ -101,15 +108,20 @@ function LayerList(props: LayerListProps) {
         </ul>
       ]
     ) : (
-      <div className="form-check form-switch">
+      // Step 12
+      <div>
+        {/* <div className="form-check form-switch"> */}
         <input
-          className="form-check-input"
+          // STEP 13
+          // className="form-check-input"
           type="checkbox"
           id={`${value}ItemSwitch`}
           checked={item.visible ? true : false}
           onChange={() => (item.visible = !item.visible)}
         />
-        <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
+        <label htmlFor={`${value}ItemSwitch`}>
+          {/* STEP 14 */}
+          {/* <label className="form-check-label" htmlFor={`${value}ItemSwitch`}> */}
           {title}
         </label>
       </div>
@@ -118,9 +130,10 @@ function LayerList(props: LayerListProps) {
     return (
       <li
         key={`${value}-list-item`}
-        className={`list-group-item${
-          !item.visibleAtCurrentScale ? " disabled" : ""
-        }`}
+        // STEP 15
+        // className={`list-group-item${
+        //   !item.visibleAtCurrentScale ? " disabled" : ""
+        // }`}
       >
         {itemNode}
       </li>

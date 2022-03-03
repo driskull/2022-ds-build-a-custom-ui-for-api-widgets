@@ -24,7 +24,7 @@ function View(props: ViewProps) {
     });
     props.view.ui.add(home, "top-left");
   }, [props.view]);
-
+  // STEP 6
   // return <div ref={viewRef} id="viewDiv" className="col-8" />;
   return <div ref={viewRef} id="viewDiv" />;
 }
