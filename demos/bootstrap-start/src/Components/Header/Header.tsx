@@ -7,7 +7,11 @@ interface HeaderProps {
 
 function Header(props: HeaderProps) {
   return (
-    <header className="header">
+    <header
+      // STEP 3
+      className="header"
+      // className="header row"
+    >
       <h1>{props.title}</h1>
     </header>
   );

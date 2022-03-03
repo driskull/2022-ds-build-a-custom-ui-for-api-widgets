@@ -46,7 +46,10 @@ function App() {
       // className="app container-fluid"
     >
       <Header title={loading ? "Loading..." : mapTitle} />
-      <div className="content">
+      <div
+        className="content"
+        // className="content row"
+      >
         <SidePanel view={view} />
         <View view={view} />
       </div>
