@@ -93,21 +93,20 @@ Business logic of the widget
 
 How to build a custom UI for a widget?
 
-- Use widget viewModels to render custom UI
-  - Watch properties state
-  - Events
-- Use your preferred
-  - Framework
-  - CSS Library
-  - Design System
+  - Use widget viewModels to render custom UI
+    - Watch properties state
+    - Events
+  - Use your preferred
+    - Framework
+    - CSS Library
+    - Design System
 
 ---
 
 # LayerList Widget
 
 [![LayerList Widget](img/layerlist.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
-
-- [Sample](<(https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)>)
+- [Sample]((https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/))
 - [SDK](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html)
 
 ---
