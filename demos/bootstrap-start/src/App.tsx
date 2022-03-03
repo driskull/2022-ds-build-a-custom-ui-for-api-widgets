@@ -40,13 +40,10 @@ function App() {
   }, []);
 
   return (
-    <div
-      // STEP 2
-      className="app"
-      // className="app container-fluid"
-    >
+    <div className="app">
       <Header title={loading ? "Loading..." : mapTitle} />
       <div
+        // STEP 3
         className="content"
         // className="content row"
       >
