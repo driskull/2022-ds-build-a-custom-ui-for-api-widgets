@@ -8,7 +8,7 @@ import SidePanel from "./Components/SidePanel/SidePanel";
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
 
-import applicationjSON from "../src/config/application.json";
+import applicationjSON from "./config/application.json";
 
 import esriConfig from "@arcgis/core/config";
 
