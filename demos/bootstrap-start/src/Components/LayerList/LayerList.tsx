@@ -54,8 +54,9 @@ function LayerList(props: LayerListProps) {
           {/* <button onClick={() => (item.open = !item.open)}>
             {item.open ? downCaretIcon : rightCaretIcon}
           </button> */}
-          <div>
-            {/* <div className="form-check form-switch"> */}
+          <div
+          // className="form-check form-switch"
+          >
             <input
               // className="form-check-input"
               type="checkbox"
@@ -63,8 +64,10 @@ function LayerList(props: LayerListProps) {
               checked={item.visible ? true : false}
               onChange={() => (item.visible = !item.visible)}
             />
-            <label htmlFor={`${value}ItemSwitch`}>
-              {/* <label className="form-check-label" htmlFor={`${value}ItemSwitch`}> */}
+            <label
+              // className="form-check-label"
+              htmlFor={`${value}ItemSwitch`}
+            >
               <span>{title}</span>
               {/* {updating ? loader : null} */}
               {updating ? "Loading..." : null}
@@ -85,8 +88,9 @@ function LayerList(props: LayerListProps) {
               //   !child.visibleAtCurrentScale ? " disabled" : ""
               // }`}
             >
-              <div>
-                {/* <div className="form-check"> */}
+              <div
+              // className="form-check"
+              >
                 <input
                   // className="form-check-input"
                   type="checkbox"
@@ -108,8 +112,9 @@ function LayerList(props: LayerListProps) {
         </ul>
       ]
     ) : (
-      <div>
-        {/* <div className="form-check form-switch"> */}
+      <div
+      // className="form-check form-switch"
+      >
         <input
           // className="form-check-input"
           type="checkbox"
@@ -117,8 +122,10 @@ function LayerList(props: LayerListProps) {
           checked={item.visible ? true : false}
           onChange={() => (item.visible = !item.visible)}
         />
-        <label htmlFor={`${value}ItemSwitch`}>
-          {/* <label className="form-check-label" htmlFor={`${value}ItemSwitch`}> */}
+        <label
+          // className="form-check-label"
+          htmlFor={`${value}ItemSwitch`}
+        >
           {title}
         </label>
       </div>
@@ -137,8 +144,9 @@ function LayerList(props: LayerListProps) {
   };
   return (
     <div className="layer-list">
-      <ul>
-        {/* <ul className="list-group list-group-flush"> */}
+      <ul
+      // className="list-group list-group-flush"
+      >
         {layerListVM?.operationalItems?.map(renderItem)}
       </ul>
     </div>
