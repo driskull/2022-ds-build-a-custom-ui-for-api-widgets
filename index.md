@@ -92,26 +92,28 @@ Business logic of the widget
 
 How to build a custom UI for a widget?
 
-  - Use widget viewModels to render custom UI
-    - Watch properties state
-    - Events
-  - Use your preferred
-    - Framework
-    - CSS Library
+- Use widget viewModels to render custom UI
+  - Watch properties state
+  - Events
+- Use your preferred
+  - Framework
+  - CSS Library
 
 ---
 
-# React + TypeScript
+# React
 
-[React](https://reactjs.org/) is a JavaScript library for building user interfaces.
-
-[TypeScript](http://www.typescriptlang.org/) is JavaScript with syntax for types.
+- JavaScript library for building user interfaces
+- Virtual DOM
+- JSX (JavaScript Syntax Extension)
+- One-way data binding
 
 ---
 
 # Create React App (CLI)
 
 New Apps:
+
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npx create-react-app my-app --template typescript
 
@@ -121,6 +123,7 @@ yarn create react-app my-app --template typescript
 </code></pre>
 
 Existing Apps:
+
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 
@@ -131,7 +134,34 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 ---
 
-## ArcGIS API for JavaScript
+# TypeScript
+
+- JavaScript with syntax for types
+- Open-source programming language developed by Microsoft
+- Superset of JavaScript
+- Helps with code management
+- Throws errors to catch issues earlier on in development
+
+---
+
+# Bootstrap
+
+- Open-source CSS framework
+- Mobile-first
+- Responsive
+- CSS and JavaScript-based design templates
+
+---
+
+# Calcite Design System
+
+- Esri's Design System
+- Web Components (Custom Elements)
+- Built with StencilJS, a compiler that generates Web Components
+
+---
+
+# ArcGIS API for JavaScript
 
 [JS API](https://developers.arcgis.com/javascript/latest/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
 
@@ -140,13 +170,11 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 ---
 
-
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # React + Bootstrap
 
 ---
-
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
@@ -158,17 +186,30 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 # Resources
 
+- Calcite Design System: https://developers.arcgis.com/calcite-design-system/
+
+- ArcGIS API for JavaScript: https://developers.arcgis.com/javascript/latest/
+
+- React: https://reactjs.org/
+
+- Create React App: https://create-react-app.dev/
+
+- TypeScript: https://www.typescriptlang.org/
+
+- Bootstrap: https://getbootstrap.com/
+
 ---
+
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Questions? 🤔
-
 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 Please provide your feedback for this session by clicking on the session survey link directly below the video.
+
 <!-- .element: style="margin: 0 20%;" -->
 
 ---
@@ -187,11 +228,9 @@ Please provide your feedback for this session by clicking on the session survey 
 import React, { useState } from 'react';
 
 function Example() {
-  const [count, setCount] = useState(0);
-  return (
-    ...
-  );
+const [count, setCount] = useState(0);
+return (
+...
+);
 }
 </code></pre>
-
-
