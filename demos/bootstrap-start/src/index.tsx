@@ -1,4 +1,4 @@
-// STEP 1
+// STEP 1: Add bootstrap CSS and JS
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import $ from "jquery";
 // import Popper from "popper.js";
