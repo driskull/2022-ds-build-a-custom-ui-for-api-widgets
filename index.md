@@ -48,7 +48,7 @@
 
 ArcGIS Javascript API Widgets are composed of Views & ViewModels
 
-- Business loogic is separate from presentation
+- Business logic is separate from presentation
 - Reusable
 - UI replacement
 - Framework integration
@@ -106,7 +106,7 @@ How to build a custom UI for a widget?
 # LayerList Widget
 
 [![LayerList Widget](img/layerlist.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
-- [Sample]((https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/))
+- [Sample](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
 - [SDK](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html)
 
 ---
@@ -184,7 +184,7 @@ Take LayerList in React and add Bootstrap
 
 # React + Calcite Components
 
-Take LayerList in React and add Calcite Components
+Build a LayerList using React and Calcite Components
 
 ---
 
@@ -279,7 +279,7 @@ Take LayerList in React and add Calcite Components
 - A set of React components that wrap Calcite Components
 - [NPM Package](https://www.npmjs.com/package/@esri/calcite-components-react)
 
-```
+```node
 npm install --save @esri/calcite-components-react
 ```
 
