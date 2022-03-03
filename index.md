@@ -38,9 +38,9 @@
 
 # Benefits of Widgets
 
-- Reusable & modular
-- Configurable
-- Help build more complex apps
+- Reusable & modular <calcite-icon scale="l" icon="round-about"></calcite-icon>
+- Configurable <calcite-icon scale="l" icon="gear"></calcite-icon>
+- Help build more complex apps <calcite-icon scale="l" icon="wrench"></calcite-icon>
 
 ---
 
@@ -235,10 +235,14 @@ Build a LayerList using React and Calcite Components
   - Browser-compatible elements
   - Use native APIs
   - DOM element lifecycle
-- [Slotting](https://developers.arcgis.com/calcite-design-system/faq/#what-are-slots)
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
+- [Slotting](https://developers.arcgis.com/calcite-design-system/faq/#what-are-slots)
+
+```html
+<my-component><button slot="footer" /></my-component>
+```
 
 ---
 
