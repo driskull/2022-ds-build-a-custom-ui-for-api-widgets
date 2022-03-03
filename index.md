@@ -11,6 +11,7 @@
 # Agenda
 
 - Widget fundamentals
+- LayerList Widget
 - Creating custom widget UI
   - Setup JSAPI + React
   - React + Bootstrap
@@ -28,7 +29,7 @@
 
 # What are widgets?
 
-- A pomponent of user interface
+- A component of UI
 - Perform a function
 - Interactive
 - Stateful
@@ -45,7 +46,7 @@
 
 # Widget Architecture
 
-Widgets are composed of Views & ViewModels
+ArcGIS Javascript API Widgets are composed of Views & ViewModels
 
 - Business loogic is separate from presentation
 - Reusable
@@ -98,6 +99,16 @@ How to build a custom UI for a widget?
 - Use your preferred
   - Framework
   - CSS Library
+  - Design System
+
+---
+
+# LayerList Widget
+
+[![LayerList Widget](img/layerlist.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
+
+- [Sample](<(https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)>)
+- [SDK](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html)
 
 ---
 
@@ -117,7 +128,7 @@ New Apps:
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npx create-react-app my-app --template typescript
 
-# or 
+# or
 
 yarn create react-app my-app --template typescript
 </code></pre>
@@ -127,7 +138,7 @@ Existing Apps:
 <pre data-id="code-animation"><code class="hljs" data-trim>
 npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 
-# or 
+# or
 
 yarn add typescript @types/node @types/react @types/react-dom @types/jest
 </code></pre>
@@ -153,14 +164,6 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 ---
 
-# Calcite Design System
-
-- Esri's Design System
-- Web Components (Custom Elements)
-- Built with StencilJS, a compiler that generates Web Components
-
----
-
 # ArcGIS API for JavaScript
 
 [JS API](https://developers.arcgis.com/javascript/latest/) + [ES modules](https://developers.arcgis.com/javascript/latest/tooling-intro/)
@@ -174,11 +177,116 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 # React + Bootstrap
 
+Take LayerList in React and add Bootstrap
+
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # React + Calcite Components
+
+Take LayerList in React and add Calcite Components
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite: Esri's design system
+
+- Visual language for products
+  - Design guidelines
+    - Color, Spacing, Typography...
+  - Graphic resources (Icons, symbols, Figma UI Kit)
+  - Interactive documentation
+    - Patterns & best practices
+  - Reusable components
+- Closes the gap between designers and UI engineers
+- [Documentation](https://developers.arcgis.com/calcite-design-system/)
+
+---
+
+# Calcite components
+
+- [Web Components](https://developers.arcgis.com/calcite-design-system/components/) for Calcite Design System
+  - 50+ web components
+    - Ready to use
+    - Reusable
+    - Provides a library of patterns
+  - Internal & external use
+    - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
+  - Easily build beautiful consistent apps
+
+---
+
+# Benefits of Calcite
+
+- Consistent UX
+- Speed up development timelines
+- Accessibility
+- Web standards
+- Framework integration
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# About Web Components
+
+- Custom elements
+  - Browser-compatible elements
+  - Use native APIs
+  - DOM element lifecycle
+- [Slotting](https://developers.arcgis.com/calcite-design-system/faq/#what-are-slots)
+- Shadow DOM
+  - Encapsulates component HTML & CSS
+  - `<slot>` tag for distributing content
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite Design
+
+![App Design](img/app-design.png)
+
+---
+
+# Design Components
+
+![Design Component](img/pieces.png)
+
+---
+
+# PickList Calcite Component
+
+[![PickList](img/pick-list.png)](https://developers.arcgis.com/calcite-design-system/components/pick-list/)
+
+---
+
+# Panel
+
+[![Panel](img/panel.png)](https://developers.arcgis.com/calcite-design-system/components/panel/)
+
+---
+
+# Shell/Shell Panel
+
+[![PickList](img/shell.png)](https://developers.arcgis.com/calcite-design-system/components/shell/)
+
+---
+
+# Calcite Components React
+
+- A set of React components that wrap Calcite Components
+- [NPM Package](https://www.npmjs.com/package/@esri/calcite-components-react)
+
+```
+npm install --save @esri/calcite-components-react
+```
+
+---
+
+# DEMO: React + Calcite Components
 
 ---
 
