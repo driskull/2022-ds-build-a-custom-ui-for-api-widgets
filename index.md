@@ -95,19 +95,20 @@ Business logic of the widget
 
 How to build a custom UI for a widget?
 
-  - Use widget viewModels to render custom UI
-    - Watch properties state
-    - Events
-  - Use your preferred
-    - Framework
-    - CSS Library
-    - Design System
+- Use widget viewModels to render custom UI
+  - Watch properties state
+  - Events
+- Use your preferred
+  - Framework
+  - CSS Library
+  - Design System
 
 ---
 
 # LayerList Widget
 
 [![LayerList Widget](img/layerlist.png)](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
+
 - [Sample](https://developers.arcgis.com/javascript/latest/sample-code/widgets-layerlist/)
 - [SDK](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-LayerList.html)
 
@@ -171,6 +172,14 @@ yarn add typescript @types/node @types/react @types/react-dom @types/jest
 
 - [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/)
 - [JSAPI esm samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# React + TypeScript + LayerListViewModel
+
+Create React App with TypeScript and implement LayerListViewModel
 
 ---
 
@@ -328,4 +337,3 @@ npm install --save @esri/calcite-components-react
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-8.png" data-background-size="cover" -->
-
