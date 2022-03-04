@@ -20,6 +20,7 @@ interface SidePanelProps {
 //   );
 // }
 
+// STEP 2: UPDATE RENDERING RETURN VNODE
 function SidePanel(props: SidePanelProps) {
   return (
     <div className="side-panel">

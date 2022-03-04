@@ -215,7 +215,6 @@ Build a LayerList using React and Calcite Components
   - Graphic resources (Icons, symbols, Figma UI Kit)
   - Interactive documentation
     - Patterns & best practices
-  - Reusable components
 - Closes the gap between designers and UI engineers
 - [Documentation](https://developers.arcgis.com/calcite-design-system/)
 
@@ -225,11 +224,6 @@ Build a LayerList using React and Calcite Components
 
 - [Web Components](https://developers.arcgis.com/calcite-design-system/components/) for Calcite Design System
   - 50+ web components
-    - Ready to use
-    - Reusable
-    - Provides a library of patterns
-  - Internal & external use
-    - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
   - Easily build beautiful consistent apps
 
 ---
@@ -255,7 +249,7 @@ Build a LayerList using React and Calcite Components
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
-- [Slotting](https://developers.arcgis.com/calcite-design-system/faq/#what-are-slots)
+- `slot` attribute for defining content
 
 ```html
 <my-component><button slot="footer" /></my-component>
