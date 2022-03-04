@@ -40,9 +40,9 @@ function App() {
   }, []);
 
   return (
-    <div className="app container-fluid">
+    <div className="app">
       <Header title={loading ? "Loading..." : mapTitle} />
-      <div className="content row">
+      <div className="content">
         <SidePanel view={view} />
         <View view={view} />
       </div>
