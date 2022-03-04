@@ -51,7 +51,7 @@
 ArcGIS Javascript API Widgets are composed of Views & ViewModels
 
 - Business logic is separate from presentation
-- Reusable
+- Reusable logic
 - UI replacement
 - Framework integration
 
@@ -62,6 +62,7 @@ ArcGIS Javascript API Widgets are composed of Views & ViewModels
 Presentation of the widget
 
 - Extends `esri/widgets/Widget`
+  - example: `esri/widgets/Search`
 - Focused on UI & DOM structure
 - Use ViewModel APIs to render UI
 
@@ -72,9 +73,10 @@ Presentation of the widget
 Business logic of the widget
 
 - Extends `esri/core/Accessor`
+  - example: `esri/widgets/Search/SearchViewModel`
 - Provides APIs to support View
 - Focuses on business logic
-- No DOM structure
+- No DOM
 
 ---
 
@@ -91,9 +93,9 @@ Business logic of the widget
 
 ---
 
-# Custom Widget Best practices
+# Custom Widgets?
 
-How to build a custom UI for a widget?
+Best practices for building a custom UI.
 
 - Use widget viewModels to render custom UI
   - Watch properties state
