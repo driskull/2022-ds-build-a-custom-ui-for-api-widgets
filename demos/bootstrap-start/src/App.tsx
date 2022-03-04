@@ -38,7 +38,7 @@ function App() {
       setLoading(false);
     });
   }, []);
-  // STEP 2
+  // STEP 2: .container-fluid for .app and .row for .content
   return (
     <div
       className="app"

@@ -8,7 +8,7 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
   return (
     <header
-      // STEP 3: Add row class
+      // STEP 3: Add .row for header and remove gutters
       className="header"
       // className="header row g-0"
     >
