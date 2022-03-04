@@ -111,6 +111,7 @@ function LayerList(props: LayerListProps) {
         />
         <label className="form-check-label" htmlFor={`${value}ItemSwitch`}>
           {title}
+          {updating ? loader : null}
         </label>
       </div>
     );
