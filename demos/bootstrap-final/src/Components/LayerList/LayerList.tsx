@@ -93,12 +93,12 @@ function LayerList(props: LayerListProps) {
                   htmlFor={`${(child as any).uid}ChildCheck`}
                 >
                   <span>{child.title}</span>
-                  {child.updating ? loader : null}
+                  {updating ? loader : null}
                 </label>
               </div>
             </li>
           ))}
-        </ul>,
+        </ul>
       ]
     ) : (
       <div className="form-check form-switch">
