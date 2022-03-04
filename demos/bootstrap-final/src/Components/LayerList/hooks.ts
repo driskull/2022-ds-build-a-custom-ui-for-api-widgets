@@ -18,8 +18,8 @@ export function useLayerListViewModel(
     addLayerListHandlers({
       layerListVM,
       handles,
-      onStateChange: (state) => updateState(state),
-      onOperationalItemsChange: (items) => updateOperationalItems(items),
+      onStateChange: state => updateState(state),
+      onOperationalItemsChange: items => updateOperationalItems(items)
     });
 
     return function cleanup() {
@@ -30,7 +30,7 @@ export function useLayerListViewModel(
 
   useEffect(() => {
     const vm = new LayerListViewModel({
-      view,
+      view
     });
 
     setLayerListVM(vm);

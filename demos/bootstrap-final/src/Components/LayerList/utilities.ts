@@ -6,7 +6,7 @@ export function addLayerListHandlers({
   layerListVM,
   handles,
   onStateChange,
-  onOperationalItemsChange,
+  onOperationalItemsChange
 }: {
   layerListVM: __esri.LayerListViewModel;
   handles: Handles;
@@ -33,16 +33,16 @@ export function addLayerListHandlers({
             "visible",
             "visibleAtCurrentScale",
             "updating",
-            "open",
+            "open"
           ],
           () => operationalItemsChanged()
         ),
-        item.children.on("change", watchItems),
+        item.children.on("change", watchItems)
       ],
       layerHandleGroup
     );
 
-    item.children.forEach((child) => watchItem(child));
+    item.children.forEach(child => watchItem(child));
   };
 
   const operationalItemsChanged = () => {
