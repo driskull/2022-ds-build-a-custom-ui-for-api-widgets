@@ -118,6 +118,10 @@ Best practices for building a custom UI.
 
 # React
 
+---
+
+# React
+
 - JavaScript library for building user interfaces
 - Virtual DOM
 - JSX (JavaScript Syntax Extension)
