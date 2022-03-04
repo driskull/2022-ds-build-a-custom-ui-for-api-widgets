@@ -103,7 +103,7 @@ function LayerList(props: LayerListProps) {
                   htmlFor={`${(child as any).uid}ChildCheck`}
                 >
                   <span>{child.title}</span>
-                  {/* {updating ? loader : null} */}
+                  {/* {child.updating ? loader : null} */}
                   {child.updating ? "Loading..." : null}
                 </label>
               </div>
