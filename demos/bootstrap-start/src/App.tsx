@@ -38,13 +38,17 @@ function App() {
       setLoading(false);
     });
   }, []);
-
+  // STEP 2: .container-fluid for .app and .row for .content
   return (
-    <div className="app">
-      {/* <div className="app container-fluid"> */}
+    <div
+      className="app"
+      // className="app container-fluid"
+    >
       <Header title={loading ? "Loading..." : mapTitle} />
-      <div className="content">
-        {/* <div className="content row"> */}
+      <div
+        className="content"
+        // className="content row g-0"
+      >
         <SidePanel view={view} />
         <View view={view} />
       </div>

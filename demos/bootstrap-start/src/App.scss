@@ -9,11 +9,8 @@ body,
   height: 100%;
 }
 
-// .row {
-//   --bs-gutter-x: 0;
-// }
-
 .content {
+  // Step 4: Remove flex
   display: flex;
   height: 95%;
 }

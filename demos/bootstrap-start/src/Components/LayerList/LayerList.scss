@@ -1,28 +1,29 @@
-.layer-list {
-  box-sizing: border-box;
+// STEP 10
+// .layer-list {
+//   box-sizing: border-box;
+//   width: 100%;
+//   .spinner-border {
+//     width: 1rem;
+//     height: 1rem;
+//     margin-left: 10px;
+//   }
 
-  .spinner-border {
-    width: 1rem;
-    height: 1rem;
-    margin-left: 10px;
-  }
+//   .parent-item {
+//     display: flex;
+//     align-items: center;
 
-  .parent-item {
-    display: flex;
-    align-items: center;
+//     .form-check {
+//       margin-bottom: 0;
+//     }
 
-    .form-check {
-      margin-bottom: 0;
-    }
+//     button {
+//       border: 0;
+//       background-color: transparent;
+//       margin-right: 10px;
+//     }
+//   }
 
-    button {
-      border: 0;
-      background-color: transparent;
-      margin-right: 10px;
-    }
-  }
-
-  .list-group-item.disabled {
-    pointer-events: all;
-  }
-}
+//   .list-group-item.disabled {
+//     pointer-events: all;
+//   }
+// }

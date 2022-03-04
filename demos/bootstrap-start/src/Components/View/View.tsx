@@ -25,8 +25,14 @@ function View(props: ViewProps) {
     props.view.ui.add(home, "top-left");
   }, [props.view]);
 
-  // return <div ref={viewRef} id="viewDiv" className="col-8" />;
-  return <div ref={viewRef} id="viewDiv" />;
+  return (
+    <div
+      ref={viewRef}
+      id="viewDiv"
+      // STEP 7: Set grid column to 8
+      // className="col-8"
+    />
+  );
 }
 
 export default View;
