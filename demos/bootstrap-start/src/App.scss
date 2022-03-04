@@ -2,20 +2,15 @@ html,
 body,
 #root,
 .app {
-  height: 100%;
-}
-
-html,
-body,
-#root {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
 }
 
 .content {
-  // Step 3: Remove?
+  // Step 4: Remove flex
   display: flex;
   height: 95%;
 }

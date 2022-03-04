@@ -8,9 +8,9 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
   return (
     <header
-      // STEP 4: Add row class
+      // STEP 3: Add row class
       className="header"
-      // className="header row"
+      // className="header row g-0"
     >
       <h1>{props.title}</h1>
     </header>
