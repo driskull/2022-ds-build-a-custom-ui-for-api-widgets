@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import Home from "@arcgis/core/widgets/Home";
-import "./View.scss";
 
 interface ViewProps {
   view: __esri.MapView;
