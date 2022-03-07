@@ -239,7 +239,7 @@ Build a LayerList using React and Calcite Components
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# About Web Components
+# Web Components
 
 - Custom elements
   - Browser-compatible elements
@@ -248,11 +248,59 @@ Build a LayerList using React and Calcite Components
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
-- `slot` attribute for defining content
+- HTML templating & slotting
+  - `slot` attribute
+
+---
+
+# Configuring Web Components
+
+## Slots
+
+Allows end user to place content within a component
+
+---
+
+# Named Component Slots
+
+To customize certain regions
 
 ```html
-<my-component><button slot="footer" /></my-component>
+<calcite-card>
+  <h3 slot="title">Esri</h3>
+  <img slot="thumbnail" src="img/esri-card.jpeg" />
+  <span slot="subtitle">
+    Esri is an international supplier of geographic information system
+    software...
+  </span>
+</calcite-card>
 ```
+
+<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
+
+---
+
+# Default Component Slot
+
+For default content placement
+
+```html
+<calcite-split-button scale="l" primary-text="My Button!">
+  <calcite-dropdown-group>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+  </calcite-dropdown-group>
+</calcite-split-button>
+```
+
+<calcite-split-button style="text-align: left" scale="l" primary-text="My Button!">
+  <calcite-dropdown-group>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+  </calcite-dropdown-group>
+</calcite-split-button>
 
 ---
 
