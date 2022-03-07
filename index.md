@@ -215,7 +215,6 @@ Build a LayerList using React and Calcite Components
   - Graphic resources (Icons, symbols, Figma UI Kit)
   - Interactive documentation
     - Patterns & best practices
-- Closes the gap between designers and UI engineers
 - [Documentation](https://developers.arcgis.com/calcite-design-system/)
 
 ---
