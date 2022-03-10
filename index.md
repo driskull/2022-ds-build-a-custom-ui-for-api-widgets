@@ -40,7 +40,7 @@
 
 # Benefits of Widgets
 
-- Reusable & modular <calcite-icon scale="l" icon="round-about"></calcite-icon>
+- Reusable <calcite-icon scale="l" icon="round-about"></calcite-icon>
 - Configurable <calcite-icon scale="l" icon="gear"></calcite-icon>
 - Help build more complex apps <calcite-icon scale="l" icon="wrench"></calcite-icon>
 
@@ -51,9 +51,9 @@
 ArcGIS Javascript API Widgets are composed of Views & ViewModels
 
 - Business logic is separate from presentation
-- Reusable logic
-- UI replacement
-- Framework integration
+  - Reusable logic
+  - UI replacement
+  - Framework integration
 
 ---
 
@@ -261,25 +261,6 @@ Allows end user to place content within a component
 
 ---
 
-# Named Component Slots
-
-To customize certain regions
-
-```html
-<calcite-card>
-  <h3 slot="title">Esri</h3>
-  <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle">
-    Esri is an international supplier of geographic information system
-    software...
-  </span>
-</calcite-card>
-```
-
-<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
-
----
-
 # Default Component Slot
 
 For default content placement
@@ -301,6 +282,25 @@ For default content placement
     <calcite-dropdown-item>Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
+
+---
+
+# Named Component Slots
+
+To customize certain regions
+
+```html
+<calcite-card>
+  <h3 slot="title">Esri</h3>
+  <img slot="thumbnail" src="img/esri-card.jpeg" />
+  <span slot="subtitle">
+    Esri is an international supplier of geographic information system
+    software...
+  </span>
+</calcite-card>
+```
+
+<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
 
 ---
 
