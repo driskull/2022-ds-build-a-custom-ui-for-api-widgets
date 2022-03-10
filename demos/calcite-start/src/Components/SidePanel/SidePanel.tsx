@@ -11,7 +11,7 @@ interface SidePanelProps {
   view: __esri.MapView;
 }
 
-// STEP 1: UPDATE RENDERING RETURN VNODE
+// STEP 2: UPDATE RENDERING RETURN VNODE
 // function SidePanel(props: SidePanelProps) {
 //   return (
 //     <CalciteShellPanel slot="primary-panel" position="start">
@@ -20,7 +20,6 @@ interface SidePanelProps {
 //   );
 // }
 
-// STEP 2: UPDATE RENDERING RETURN VNODE
 function SidePanel(props: SidePanelProps) {
   return (
     <div className="side-panel">
