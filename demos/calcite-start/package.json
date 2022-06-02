@@ -6,7 +6,7 @@
     "@arcgis/core": "^4.22.2",
     "@esri/calcite-components-react": "^0.19.0",
     "install": "^0.13.0",
-    "npm": "^8.4.0",
+    "npm": "^8.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "web-vitals": "^2.1.4"
